@@ -4,8 +4,17 @@ html {
   margin: 0;
 }
 
+main {
+  height: 100vh;
+}
+
 .subtext {
   font-size: 12px;
   font-weight: bold;
   color: gray;
+}
+
+#carousel-item {
+  display: flex;
+  object-fit: contain;
 }
