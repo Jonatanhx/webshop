@@ -5,42 +5,53 @@ export default function Carousel() {
     <ul className="flex">
       <li className="overflow-hidden">
         <Image
-          className="max-h-[20rem] h-auto w-auto scale-120"
+          className="max-h-[12rem] h-auto w-auto"
           id="carousel-item"
-          src="/products/tshirt2.jpg"
+          src="/watch1/CitizenClassic1.png"
           height={500}
           width={400}
           alt="LSKD.CO black mens t-shirt"
-        ></Image>
+        />
       </li>
       <li className="overflow-hidden">
         <Image
-          className="max-h-[20rem] h-auto w-auto scale-120"
+          className="max-h-[12rem] h-auto w-auto"
           id="carousel-item"
-          src="/products/tshirt3.jpg"
+          src="/watch2/BulovaClipper1.png"
           height={500}
           width={400}
           alt="LSKD.CO black mens t-shirt"
-        ></Image>
+        />
       </li>
       <li className="overflow-hidden">
         <Image
-          className="max-h-[20rem] h-auto w-auto scale-130"
-          src="/products/tshirt1.jpg"
-          height={500}
-          width={400}
-          alt="705 black unisex t-shirt"
-        ></Image>
-      </li>
-      <li className="overflow-hidden">
-        <Image
-          className="max-h-[20rem] h-auto w-auto scale-130"
+          className="max-h-[12rem] h-auto w-auto"
           id="carousel-item"
-          src="/products/tshirt4.jpg"
+          src="/watch3/BulovaA15-pilot.png"
           height={500}
           width={400}
           alt="LSKD.CO black mens t-shirt"
-        ></Image>
+        />
+      </li>
+      <li className="overflow-hidden">
+        <Image
+          className="max-h-[12rem] h-auto w-auto"
+          id="carousel-item"
+          src="/watch4/BulovaCurv1.png"
+          height={500}
+          width={400}
+          alt="LSKD.CO black mens t-shirt"
+        />
+      </li>
+      <li className="overflow-hidden">
+        <Image
+          className="max-h-[12rem] h-auto w-auto"
+          id="carousel-item"
+          src="/watch5/CitizenTsuyosa1.png"
+          height={500}
+          width={400}
+          alt="LSKD.CO black mens t-shirt"
+        />
       </li>
     </ul>
   );
