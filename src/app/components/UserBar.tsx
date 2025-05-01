@@ -10,11 +10,11 @@ export default function UserBar() {
           className="size-11"
         />
       </Link>
-      <Link href="wishlist">
+      <Link href="/wishlist">
         <Icon icon="mdi-light:heart" className="size-10" />
       </Link>
 
-      <Link href="cart">
+      <Link href="/cart">
         <Icon
           icon="material-symbols-light:shopping-bag-outline"
           className="size-10"

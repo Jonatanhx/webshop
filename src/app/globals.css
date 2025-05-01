@@ -13,8 +13,3 @@ main {
   font-weight: bold;
   color: gray;
 }
-
-#carousel-item {
-  display: flex;
-  object-fit: contain;
-}
