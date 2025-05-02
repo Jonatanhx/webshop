@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col border-t min-h-[20rem] justify-between items-center">
+    <footer className="flex flex-col border-t min-h-[20rem] justify-between items-center pb-4">
       <section className="flex gap-36 items-center min-h-[12rem]">
         <div>
           <p className="font-semibold">Help</p>

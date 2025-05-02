@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function UserBar() {
   return (
     <div className="flex flex-1 justify-end">
-      <Icon icon="stash:globe-light" className="size-10" />
       <Link href="/profile">
         <Icon
           icon="material-symbols-light:person-outline"
