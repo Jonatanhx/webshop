@@ -10,11 +10,15 @@ datasource db {
 
 model Product {
   id String @id @default(uuid())
+  name String @unique
+  image String[]
+  price Decimal
   categoryId String
   category Category @relation(fields: [categoryId], references: [id])
 }
 
 model Category {
   id String @id @default(uuid())
+  name String
   products Product[]
 }
