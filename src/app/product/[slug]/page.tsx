@@ -1,23 +1,24 @@
-import Image from "next/image";
+"use client";
+import { CldImage } from "next-cloudinary";
 
 export default function ProductPage() {
   return (
     <main>
-      <div className="flex">
-        <Image
-          src="/watch1/CitizenClassic1.png"
+      <div className="flex justify-center">
+        <CldImage
+          src="CitizenClassic1_gdwm7e"
           alt="Citizen classic"
           height={300}
           width={100}
         />
-        <Image
-          src="/watch1/CitizenClassic2.png"
+        <CldImage
+          src="CitizenClassic2_ydeouf"
           alt="Citizen classic"
           height={300}
           width={100}
         />
-        <Image
-          src="/watch1/CitizenClassic3.png"
+        <CldImage
+          src="CitizenClassic3_brxdyh"
           alt="Citizen classic"
           height={300}
           width={100}
