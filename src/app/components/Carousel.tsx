@@ -5,9 +5,9 @@ import Link from "next/link";
 export default function Carousel() {
   const watch1 = "citizen-classic";
   return (
-    <ul className="flex">
+    <ul className="flex items-center justify-center">
       <Link href={`/product/${watch1}`}>
-        <li className="relative w-[8rem] h-[14rem] overflow-hidden">
+        <li className="relative w-[8rem] h-[14rem] overflow-hidden m-4 border">
           <CldImage
             alt="citizen classic"
             src="CitizenClassic1_gdwm7e"

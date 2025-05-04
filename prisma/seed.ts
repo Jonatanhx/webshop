@@ -9,15 +9,31 @@ async function seedProducts() {
     create: {
       name: "citizen-classic",
       price: 225.0,
+      brand: "citizen",
       image: [
         "https://res.cloudinary.com/dfxyglpis/image/upload/v1746179123/CitizenClassic1_gdwm7e.png",
         "https://res.cloudinary.com/dfxyglpis/image/upload/v1746179123/CitizenClassic3_brxdyh.png",
         "https://res.cloudinary.com/dfxyglpis/image/upload/v1746179123/CitizenClassic2_ydeouf.png",
       ],
-      category: {
-        create: {
-          name: "watch",
-        },
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "featured" },
+                create: { name: "featured" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "watches" },
+                create: { name: "watches" },
+              },
+            },
+          },
+        ],
       },
     },
   });
