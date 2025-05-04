@@ -10,10 +10,10 @@ async function seedProducts() {
       name: "citizen-classic",
       price: 225.0,
       brand: "citizen",
-      image: [
-        "https://res.cloudinary.com/dfxyglpis/image/upload/v1746179123/CitizenClassic1_gdwm7e.png",
-        "https://res.cloudinary.com/dfxyglpis/image/upload/v1746179123/CitizenClassic3_brxdyh.png",
-        "https://res.cloudinary.com/dfxyglpis/image/upload/v1746179123/CitizenClassic2_ydeouf.png",
+      images: [
+        "CitizenClassic1_gdwm7e",
+        "CitizenClassic2_ydeouf",
+        "CitizenClassic3_brxdyh",
       ],
       productCategory: {
         create: [

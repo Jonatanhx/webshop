@@ -12,7 +12,7 @@ model Product {
   id              String            @id @default(uuid())
   name            String            @unique
   brand           String
-  image           String[]
+  images           String[]
   price           Decimal
   productCategory ProductCategory[]
 }
