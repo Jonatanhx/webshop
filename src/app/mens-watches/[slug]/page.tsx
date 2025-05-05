@@ -1,4 +1,5 @@
 import ProductDisplay from "@/app/components/ProductDisplay";
+import URLPath from "@/app/components/URLPath";
 import { serializedProduct } from "@/types";
 import { prisma } from "../../../../lib/prisma";
 
@@ -21,6 +22,7 @@ export default async function ProductPage({
   };
   return (
     <main className="">
+      <URLPath />
       <ProductDisplay props={serializedProduct} />
     </main>
   );

@@ -17,7 +17,7 @@ export default async function Carousel() {
   return (
     <ul className="flex items-center justify-center">
       {serializedProducts.map((product) => (
-        <Link key={product.id} href={`/product/${product.name}`}>
+        <Link key={product.id} href={`/mens-watches/${product.name}`}>
           <li className="relative w-[8rem] h-[14rem] overflow-hidden m-4 border">
             <CloudinaryImage props={product} />
           </li>

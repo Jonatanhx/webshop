@@ -7,8 +7,8 @@ import UserBar from "./UserBar";
 
 export default function Header() {
   return (
-    <header className="flex flex-col items-center">
-      <div className="flex py-1 w-full px-6 items-center">
+    <header className="flex flex-col items-center sticky top-0 z-10 bg-white">
+      <div className="flex pt-1 w-full px-6 items-center">
         <div className="flex flex-1"></div>
         <p className="subtext">1-2 weekday delivery on most items*</p>
         <SettingsBar />
@@ -23,7 +23,7 @@ export default function Header() {
             alt="Logo"
             width={200}
             height={300}
-            className="py-1"
+            className="pb-2"
           />
         </Link>
         <UserBar />

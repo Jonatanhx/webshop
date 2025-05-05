@@ -28,8 +28,140 @@ async function seedProducts() {
           {
             category: {
               connectOrCreate: {
-                where: { name: "watches" },
-                create: { name: "watches" },
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "bulova-clipper" },
+    update: {},
+    create: {
+      name: "bulova-clipper",
+      price: 345.0,
+      brand: "bulova",
+      images: [
+        "BulovaClipper1_uvpulw",
+        "BulovaClipper2_mvy50z",
+        "BulovaClipper3_hl9kyu",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "featured" },
+                create: { name: "featured" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "bulova-a15-pilot" },
+    update: {},
+    create: {
+      name: "bulova-15-pilot",
+      price: 369.99,
+      brand: "bulova",
+      images: ["BulovaA15-pilot_wucryl"],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "featured" },
+                create: { name: "featured" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "bulova-curv" },
+    update: {},
+    create: {
+      name: "bulova-curv",
+      price: 345.0,
+      brand: "bulova",
+      images: [
+        "BulovaCurv1_jcdngs",
+        "BulovaCurv2_enzljr",
+        "BulovaCurv3_gz3vlj",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "featured" },
+                create: { name: "featured" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "citizen-tsuyosa" },
+    update: {},
+    create: {
+      name: "citizen-tsuyosa",
+      price: 345.0,
+      brand: "citizen",
+      images: [
+        "CitizenTsuyosa1_liym5t",
+        "CitizenTsuyosa2_ovhb52",
+        "CitizenTsuyosa3_hprh1z",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "featured" },
+                create: { name: "featured" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
               },
             },
           },
