@@ -23,43 +23,6 @@ export default async function Carousel() {
           </li>
         </Link>
       ))}
-      {/* 
-      <li className="relative w-[8rem] h-[14rem] overflow-hidden">
-        <CldImage
-          alt="citizen classic"
-          src="BulovaClipper1_uvpulw"
-          fill
-          className="object-cover object-center"
-          crop="fill"
-        />
-      </li>
-      <li className="relative w-[8rem] h-[14rem] overflow-hidden">
-        <CldImage
-          alt="citizen classic"
-          src="BulovaA15-pilot_wucryl"
-          fill
-          className="object-cover object-center"
-          crop="fill"
-        />
-      </li>
-      <li className="relative w-[8rem] h-[14rem] overflow-hidden">
-        <CldImage
-          alt="citizen classic"
-          src="BulovaCurv1_jcdngs"
-          fill
-          className="object-cover object-center"
-          crop="fill"
-        />
-      </li>
-      <li className="relative w-[8rem] h-[14rem] overflow-hidden">
-        <CldImage
-          alt="citizen classic"
-          src="CitizenTsuyosa1_liym5t"
-          fill
-          className="object-cover object-center"
-          crop="fill"
-        />
-      </li> */}
     </ul>
   );
 }
