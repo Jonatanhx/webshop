@@ -8,7 +8,7 @@ interface ProductDisplayProps {
 
 export default function ProductDisplay({ props }: ProductDisplayProps) {
   return (
-    <div>
+    <div className="flex justify-center">
       {props.images.map((image, index) => (
         <CldImage
           key={index}

@@ -20,7 +20,7 @@ export default async function ProductPage({
     price: Number(product.price),
   };
   return (
-    <main>
+    <main className="">
       <ProductDisplay props={serializedProduct} />
     </main>
   );
