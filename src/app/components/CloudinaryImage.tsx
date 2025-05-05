@@ -1,15 +1,10 @@
 "use client";
 
+import { serializedProduct } from "@/types";
 import { CldImage } from "next-cloudinary";
 
 interface CloudinaryImageProps {
-  props: {
-    name: string;
-    id: string;
-    brand: string;
-    images: string[];
-    price: number;
-  };
+  props: serializedProduct;
 }
 
 export default function CloudinaryImage({ props }: CloudinaryImageProps) {

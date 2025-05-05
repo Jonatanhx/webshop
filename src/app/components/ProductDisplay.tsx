@@ -10,13 +10,14 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
   return (
     <div className="flex justify-center">
       {props.images.map((image, index) => (
-        <CldImage
-          key={index}
-          src={image}
-          alt="Citizen classic"
-          height={300}
-          width={100}
-        />
+        <div key={index} className=" relative w-[15rem] h-[20rem]">
+          <CldImage
+            src={image}
+            alt={props.name}
+            fill
+            className="object-center object-contain"
+          />
+        </div>
       ))}
     </div>
   );
