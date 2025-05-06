@@ -20,7 +20,7 @@ export default async function Carousel() {
       {serializedProducts.map((product) => (
         <Link key={product.id} href={`/mens-watches/${product.name}`}>
           <ProductCard props={product}>
-            <div className="relative w-[12rem] h-[20rem]">
+            <div className="relative w-[12rem] h-[20rem] overflow-hidden">
               <CloudinaryImage props={product} />
             </div>
           </ProductCard>

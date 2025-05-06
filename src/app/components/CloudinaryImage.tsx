@@ -23,7 +23,9 @@ export default function CloudinaryImage({ props }: CloudinaryImageProps) {
           : props.images[0]
       }
       fill
-      className="object-cover object-center"
+      className={`object-cover object-center ${
+        props.images.length == 1 ? "hover:scale-105" : ""
+      }`}
       crop="fill"
     />
   );

@@ -10,6 +10,7 @@ async function seedProducts() {
       name: "citizen-classic",
       price: 225.0,
       brand: "citizen",
+      isFeatured: true,
       images: [
         "CitizenClassic1_gdwm7e",
         "CitizenClassic2_ydeouf",
@@ -17,14 +18,6 @@ async function seedProducts() {
       ],
       productCategory: {
         create: [
-          {
-            category: {
-              connectOrCreate: {
-                where: { name: "featured" },
-                create: { name: "featured" },
-              },
-            },
-          },
           {
             category: {
               connectOrCreate: {
@@ -44,6 +37,7 @@ async function seedProducts() {
       name: "bulova-clipper",
       price: 345.0,
       brand: "bulova",
+      isFeatured: true,
       images: [
         "BulovaClipper1_uvpulw",
         "BulovaClipper2_mvy50z",
@@ -51,14 +45,6 @@ async function seedProducts() {
       ],
       productCategory: {
         create: [
-          {
-            category: {
-              connectOrCreate: {
-                where: { name: "featured" },
-                create: { name: "featured" },
-              },
-            },
-          },
           {
             category: {
               connectOrCreate: {
@@ -78,17 +64,10 @@ async function seedProducts() {
       name: "bulova-a15-pilot",
       price: 369.0,
       brand: "bulova",
+      isFeatured: true,
       images: ["BulovaA15-pilot_wucryl"],
       productCategory: {
         create: [
-          {
-            category: {
-              connectOrCreate: {
-                where: { name: "featured" },
-                create: { name: "featured" },
-              },
-            },
-          },
           {
             category: {
               connectOrCreate: {
@@ -108,6 +87,7 @@ async function seedProducts() {
       name: "bulova-curv",
       price: 395.0,
       brand: "bulova",
+      isFeatured: true,
       images: [
         "BulovaCurv1_jcdngs",
         "BulovaCurv2_enzljr",
@@ -115,14 +95,6 @@ async function seedProducts() {
       ],
       productCategory: {
         create: [
-          {
-            category: {
-              connectOrCreate: {
-                where: { name: "featured" },
-                create: { name: "featured" },
-              },
-            },
-          },
           {
             category: {
               connectOrCreate: {
@@ -142,6 +114,7 @@ async function seedProducts() {
       name: "citizen-tsuyosa",
       price: 325.0,
       brand: "citizen",
+      isFeatured: true,
       images: [
         "CitizenTsuyosa1_liym5t",
         "CitizenTsuyosa2_ovhb52",
@@ -152,8 +125,58 @@ async function seedProducts() {
           {
             category: {
               connectOrCreate: {
-                where: { name: "featured" },
-                create: { name: "featured" },
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "citizen-quartz" },
+    update: {},
+    create: {
+      name: "citizen-quartz",
+      price: 415.0,
+      brand: "citizen",
+      isFeatured: false,
+      images: ["CitizenQuartz1_upsxau", "CitizenQuartz2_unhc09"],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "bulova-marine-star" },
+    update: {},
+    create: {
+      name: "bulova-marine-star",
+      price: 445.0,
+      brand: "bulova",
+      isFeatured: false,
+      images: [
+        "BulovaMarineStar1_klzpee",
+        "BulovaMarineStar2_xan1op",
+        "BulovaMarineStar3_keivio",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
               },
             },
           },
