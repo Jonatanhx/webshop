@@ -2,6 +2,7 @@ import { serializedProduct } from "@/types";
 import Link from "next/link";
 import { prisma } from "../../../lib/prisma";
 import CloudinaryImage from "./CloudinaryImage";
+import ProductCard from "./ProductCard";
 
 export default async function Carousel() {
   const products = await prisma.product.findMany();
@@ -18,9 +19,11 @@ export default async function Carousel() {
     <ul className="flex items-center justify-center my-10 gap-4">
       {serializedProducts.map((product) => (
         <Link key={product.id} href={`/mens-watches/${product.name}`}>
-          <li className="relative w-[12rem] h-[20rem] overflow-hidden">
-            <CloudinaryImage props={product} />
-          </li>
+          <ProductCard props={product}>
+            <div className="relative w-[12rem] h-[20rem]">
+              <CloudinaryImage props={product} />
+            </div>
+          </ProductCard>
         </Link>
       ))}
     </ul>

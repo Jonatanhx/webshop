@@ -75,8 +75,8 @@ async function seedProducts() {
     where: { name: "bulova-a15-pilot" },
     update: {},
     create: {
-      name: "bulova-15-pilot",
-      price: 369.99,
+      name: "bulova-a15-pilot",
+      price: 369.0,
       brand: "bulova",
       images: ["BulovaA15-pilot_wucryl"],
       productCategory: {
@@ -106,7 +106,7 @@ async function seedProducts() {
     update: {},
     create: {
       name: "bulova-curv",
-      price: 345.0,
+      price: 395.0,
       brand: "bulova",
       images: [
         "BulovaCurv1_jcdngs",
@@ -140,7 +140,7 @@ async function seedProducts() {
     update: {},
     create: {
       name: "citizen-tsuyosa",
-      price: 345.0,
+      price: 325.0,
       brand: "citizen",
       images: [
         "CitizenTsuyosa1_liym5t",

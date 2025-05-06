@@ -10,7 +10,7 @@ export default function Header() {
     <header className="flex flex-col items-center sticky top-0 z-10 bg-white">
       <div className="flex pt-1 w-full px-6 items-center">
         <div className="flex flex-1"></div>
-        <p className="subtext">1-2 weekday delivery on most items*</p>
+        <p className="subtitle">1-2 weekday delivery on most items*</p>
         <SettingsBar />
       </div>
       <div className="flex items-center w-full px-6">

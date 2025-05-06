@@ -8,7 +8,13 @@ main {
   min-height: 100vh;
 }
 
-.subtext {
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}
+
+.subtitle {
   font-size: 12px;
   font-weight: bold;
   color: gray;
