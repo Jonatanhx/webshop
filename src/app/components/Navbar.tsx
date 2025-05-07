@@ -6,10 +6,10 @@ export default async function Navbar() {
   // const [hover, setHover] = useState<boolean>(false);
   const categories = await prisma.category.findMany();
   return (
-    <nav className="flex flex-row bg-stone-300 w-full items-center justify-center">
+    <nav className="flex flex-row bg-stone-600 text-white w-full items-center justify-center py-3">
       <ul className="flex gap-4">
         <li
-          className="flex justify-center hover:cursor-pointer group py-2"
+          className="flex justify-center hover:cursor-pointer group font-semibold"
           // onMouseOver={() => {
           //   setHover(true);
           // }}
@@ -23,7 +23,7 @@ export default async function Navbar() {
 
         {categories.map((category) => (
           <Link href={`/${category.name}`} key={category.id}>
-            <li className="flex hover:cursor-pointer py-2 capitalize">
+            <li className="flex hover:cursor-pointer capitalize font-semibold">
               {category.name.replace("-", " ")}
               <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
             </li>
