@@ -28,7 +28,9 @@ export default function Header() {
         </Link>
         <UserBar />
       </div>
+
       <Navbar />
+      <div className="relative bg-white w-full z-10" id="nav-dropdown-root" />
     </header>
   );
 }

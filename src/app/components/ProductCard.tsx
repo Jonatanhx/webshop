@@ -11,12 +11,12 @@ interface ProductCardProps {
 export default function ProductCard({ children, props }: ProductCardProps) {
   const [hover, setHover] = useState<boolean>(false);
   return (
-    <li className="relative">
+    <li className="relative z-0">
       <Icon
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         icon="mdi-light:heart"
-        className={`size-8 absolute right-0 z-30 ${
+        className={`size-8 absolute right-0 z-10 ${
           hover
             ? "hover:text-red-500 hover:scale-120 transition duration-150 ease-in-out"
             : ""
