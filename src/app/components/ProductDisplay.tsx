@@ -1,20 +1,22 @@
 "use client";
 import { serializedProduct } from "@/types";
 import { CldImage } from "next-cloudinary";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
 
 interface ProductDisplayProps {
   props: serializedProduct;
 }
 
 export default function ProductDisplay({ props }: ProductDisplayProps) {
-  // const [hover, setHover] = useState<boolean>(false);
+  const cart = useContext(CartContext);
 
   function addToCart() {
     const currentCart: serializedProduct[] = JSON.parse(
       localStorage.getItem("cartItems") || "[]"
     );
     currentCart.push(props);
-    localStorage.setItem("cartItems", JSON.stringify(currentCart));
+    cart?.setCart(currentCart);
   }
 
   return (
