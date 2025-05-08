@@ -24,7 +24,7 @@ export default function BrandsButton() {
         <div
           onMouseEnter={() => showDropdown(true)}
           onMouseLeave={() => showDropdown(false)}
-          className={`flex absolute transition-maxheight duration-300 ease-in-out bg-white w-full gap-32 overflow-hidden ${
+          className={`flex absolute duration-300 bg-white w-full gap-32 overflow-hidden ${
             dropdown ? "h-[15rem] border-b-2 py-4 " : "h-0"
           }`}
         >
