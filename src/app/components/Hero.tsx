@@ -8,6 +8,7 @@ export default function Hero() {
         className="object-cover object-center"
         fill
         alt="hero"
+        priority
       />
     </div>
   );

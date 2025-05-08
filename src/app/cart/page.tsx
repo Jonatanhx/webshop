@@ -23,6 +23,7 @@ export default function CartPage() {
                 fill
                 crop="fill"
                 className="object-contain object-center"
+                sizes="100%"
               />
             </div>
             <section>

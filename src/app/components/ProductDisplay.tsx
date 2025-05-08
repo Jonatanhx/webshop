@@ -31,6 +31,7 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
                 alt={props.name}
                 fill
                 className="object-center object-contain"
+                sizes="100%"
               />
             </div>
           ))}
@@ -40,6 +41,7 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
             src={props.images[0]}
             alt={props.name}
             fill
+            sizes="100%"
             className="object-center object-contain"
           />
         </div>

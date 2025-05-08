@@ -24,6 +24,7 @@ export default function Header() {
             width={200}
             height={300}
             className="pb-2"
+            priority
           />
         </Link>
         <UserBar />
