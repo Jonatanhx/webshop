@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { WishlistProvider } from "./contexts/WishlistContext";
 import "./globals.css";
 
 export default function RootLayout({
@@ -8,12 +9,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <WishlistProvider>
+      <html lang="en">
+        <body>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </WishlistProvider>
   );
 }

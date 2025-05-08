@@ -12,7 +12,14 @@ export default function CartPage() {
   }, []);
   return (
     <main className="flex flex-col items-center">
-      <h1 className="text-2xl font-bold">Your bag({cart.length})</h1>
+      <div className="flex">
+        <div className="flex flex-1" />
+        <h1 className="text-3xl font-bold p-6 border-b border-neutral-400 mb-12">
+          Your bag({cart.length})
+        </h1>
+        <div className="flex flex-1" />
+      </div>
+
       <div className="flex flex-col items-center w-full h-full">
         {cart.map((cartItem, index) => (
           <div key={index} className="flex border w-[25%]">

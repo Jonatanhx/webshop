@@ -1,0 +1,41 @@
+"use client";
+
+import Link from "next/link";
+import { useContext } from "react";
+import CloudinaryImage from "../components/CloudinaryImage";
+import ProductCard from "../components/ProductCard";
+import { WishlistContext } from "../contexts/WishlistContext";
+
+export default function WishlistItems() {
+  const wishlistItems = useContext(WishlistContext);
+  const wishlist = wishlistItems?.wishlist;
+  return (
+    <div className="flex flex-col">
+      <div className="flex">
+        <div className="flex flex-1" />
+        <p className="text-3xl font-bold p-6 border-b border-neutral-400 mb-12">
+          Your items
+        </p>
+        <div className="flex flex-1" />
+      </div>
+      <div className="flex gap-4 min-w-screen justify-center">
+        {wishlist ? (
+          wishlist.map((product) => (
+            <div key={product.id}>
+              <ProductCard props={product}>
+                <Link href={`/mens-watches/${product.name}`}>
+                  <CloudinaryImage props={product} />
+                </Link>
+              </ProductCard>
+              <button className="w-[70%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer my-4 hover:bg-black/70">
+                <p className="text-white">Add to bag</p>
+              </button>
+            </div>
+          ))
+        ) : (
+          <div>Your wishlist is empty</div>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -1,7 +1,9 @@
-export default function wishlistPage() {
+import WishlistItems from "./WishlistItems";
+
+export default async function wishlistPage() {
   return (
-    <main>
-      <p>this is my wishlist page</p>
+    <main className="flex flex-col items-center">
+      <WishlistItems />
     </main>
   );
 }
