@@ -1,8 +1,10 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
+import SignInButton from "./buttons/SignInButton";
 import Navbar from "./Navbar";
 import SettingsBar from "./SettingsBar";
+import { User } from "./User";
 import UserBar from "./UserBar";
 
 export default function Header() {
@@ -27,6 +29,10 @@ export default function Header() {
             priority
           />
         </Link>
+        <div className="flex items-center flex-1 justify-end gap-2">
+          <SignInButton />
+          <User />
+        </div>
         <UserBar />
       </div>
 

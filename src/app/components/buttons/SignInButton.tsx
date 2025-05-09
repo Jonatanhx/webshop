@@ -1,0 +1,16 @@
+"use client";
+import { signIn } from "next-auth/react";
+
+export default function SignInButton() {
+  async function signInUser() {
+    await signIn("google");
+  }
+  return (
+    <button
+      className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 hover:cursor-pointer rounded-xl"
+      onClick={signInUser}
+    >
+      <p>Sign in</p>
+    </button>
+  );
+}

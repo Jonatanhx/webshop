@@ -12,7 +12,7 @@ export default function UserBar() {
   const cartItemCount = cart?.cart.length;
 
   return (
-    <div className="flex flex-1 justify-end">
+    <div className="flex justify-end">
       <Link href="/profile" className="relative">
         <Icon
           icon="material-symbols-light:person-outline"
