@@ -4,6 +4,7 @@ CREATE TABLE "Product" (
     "name" TEXT NOT NULL,
     "brand" TEXT NOT NULL,
     "isFeatured" BOOLEAN NOT NULL,
+    "isTrending" BOOLEAN NOT NULL,
     "images" TEXT[],
     "price" DECIMAL(65,30) NOT NULL,
 

@@ -9,6 +9,7 @@ export async function seedProducts() {
       price: 225.0,
       brand: "citizen",
       isFeatured: true,
+      isTrending: false,
       images: [
         "CitizenClassic1_gdwm7e",
         "CitizenClassic2_ydeouf",
@@ -36,6 +37,7 @@ export async function seedProducts() {
       price: 345.0,
       brand: "bulova",
       isFeatured: true,
+      isTrending: false,
       images: [
         "BulovaClipper1_uvpulw",
         "BulovaClipper2_mvy50z",
@@ -63,6 +65,7 @@ export async function seedProducts() {
       price: 369.0,
       brand: "bulova",
       isFeatured: true,
+      isTrending: false,
       images: ["BulovaA15-pilot_wucryl"],
       productCategory: {
         create: [
@@ -86,6 +89,7 @@ export async function seedProducts() {
       price: 395.0,
       brand: "bulova",
       isFeatured: true,
+      isTrending: false,
       images: [
         "BulovaCurv1_jcdngs",
         "BulovaCurv2_enzljr",
@@ -113,6 +117,7 @@ export async function seedProducts() {
       price: 325.0,
       brand: "citizen",
       isFeatured: true,
+      isTrending: false,
       images: [
         "CitizenTsuyosa1_liym5t",
         "CitizenTsuyosa2_ovhb52",
@@ -140,6 +145,7 @@ export async function seedProducts() {
       price: 415.0,
       brand: "citizen",
       isFeatured: false,
+      isTrending: true,
       images: ["CitizenQuartz1_upsxau", "CitizenQuartz2_unhc09"],
       productCategory: {
         create: [
@@ -163,6 +169,7 @@ export async function seedProducts() {
       price: 445.0,
       brand: "bulova",
       isFeatured: false,
+      isTrending: true,
       images: [
         "BulovaMarineStar1_klzpee",
         "BulovaMarineStar2_xan1op",

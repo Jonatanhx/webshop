@@ -11,6 +11,8 @@ export default async function Carousel() {
     name: product.name,
     id: product.id,
     brand: product.brand,
+    isFeatured: product.isFeatured,
+    isTrending: product.isTrending,
     images: product.images,
     price: Number(product.price),
   }));

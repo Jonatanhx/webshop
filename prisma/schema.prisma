@@ -14,6 +14,7 @@ model Product {
   name            String            @unique
   brand           String
   isFeatured      Boolean
+  isTrending      Boolean
   images          String[]
   price           Decimal
   productCategory ProductCategory[]

@@ -3,13 +3,13 @@
 import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
-import NavDropdownWrapper from "../NavDropdownWrapper";
+import NavDropdownWrapper from "./NavDropdownWrapper";
 
-interface BrandsButtonProps {
+interface BrandsDropdownProps {
   props: serializedProduct[];
 }
 
-export default function BrandsButton({ props }: BrandsButtonProps) {
+export default function BrandsDropdown({ props }: BrandsDropdownProps) {
   const [dropdown, showDropdown] = useState<boolean>(false);
 
   const uniqueBrands: string[] = [];
