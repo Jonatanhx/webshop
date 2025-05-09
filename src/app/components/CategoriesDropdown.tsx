@@ -1,48 +1,39 @@
 "use client";
 
-import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useContext } from "react";
 import { NavDropdownContext } from "../contexts/NavDropdownContext";
 import NavDropdownWrapper from "./NavDropdownWrapper";
 
-interface BrandsDropdownProps {
-  props: serializedProduct[];
+interface CategoriesDropdownProps {
+  props: {
+    id: string;
+    name: string;
+  };
 }
 
-export default function BrandsDropdown({ props }: BrandsDropdownProps) {
+export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
   const context = useContext(NavDropdownContext);
-  const trending = props.filter((product) => product.isTrending === true);
-  const uniqueBrands: string[] = [];
-  props.forEach((product) => {
-    if (!uniqueBrands.includes(product.brand)) {
-      uniqueBrands.push(product.brand);
-    } else {
-      return;
-    }
-  });
   return (
     <li
-      className={`relative flex justify-center hover:cursor-pointer font-semibold py-3 ${
-        context?.isOpen && "underline underline-offset-4"
-      }`}
-      onMouseOver={() => {
+      onMouseEnter={() => {
         context?.setIsOpen(true);
-        context?.setHoveredItem("brands");
+        context?.setHoveredItem(`${props.name}`);
       }}
       onMouseLeave={() => {
         context?.setIsOpen(false);
         context?.setHoveredItem("");
       }}
+      className="flex hover:cursor-pointer capitalize font-semibold py-3"
     >
-      Brands
+      {props.name.replace("-", " ")}
       <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
-      {context?.hoveredItem === "brands" && (
+      {context?.hoveredItem === props.name && (
         <NavDropdownWrapper>
           <div
-            onMouseOver={() => {
+            onMouseEnter={() => {
               context?.setIsOpen(true);
-              context?.setHoveredItem("brands");
+              context?.setHoveredItem(`${props.name}`);
             }}
             onMouseLeave={() => {
               context?.setIsOpen(false);
@@ -63,29 +54,11 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
             </div>
             <div>
               <p className="subtitle">Trending Watches</p>
-              <ul>
-                {trending.map((product) => (
-                  <li
-                    className="capitalize border-b border-transparent hover:border-black hover:cursor-pointer"
-                    key={product.id}
-                  >
-                    {product.name.replace("-", " ")}
-                  </li>
-                ))}
-              </ul>
+              <ul>{props.name}</ul>
             </div>
             <div>
               <p className="subtitle">Popular Brands</p>
-              <ul>
-                {uniqueBrands.map((product, index) => (
-                  <li
-                    key={index}
-                    className="capitalize hover:cursor-pointer border-b border-transparent hover:border-black"
-                  >
-                    {product}
-                  </li>
-                ))}
-              </ul>
+              <ul></ul>
             </div>
             <div className="flex flex-1" />
           </div>

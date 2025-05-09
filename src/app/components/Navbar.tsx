@@ -1,8 +1,8 @@
 import { serializedProduct } from "@/types";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import { prisma } from "../../../lib/prisma";
 import BrandsDropdown from "./BrandsDropdown";
+import CategoriesDropdown from "./CategoriesDropdown";
 
 export default async function Navbar() {
   const categories = await prisma.category.findMany();
@@ -24,14 +24,11 @@ export default async function Navbar() {
 
   return (
     <nav className="flex flex-col bg-stone-600 text-white w-full items-center justify-center">
-      <ul className="flex gap-4">
+      <ul className="flex">
         <BrandsDropdown props={serializedProducts} />
         {categories.map((category) => (
           <Link href={`/${category.name}`} key={category.id}>
-            <li className="flex hover:cursor-pointer capitalize font-semibold py-3">
-              {category.name.replace("-", " ")}
-              <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
-            </li>
+            <CategoriesDropdown props={category} />
           </Link>
         ))}
       </ul>
