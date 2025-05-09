@@ -1,11 +1,25 @@
 "use client";
 
+import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import NavDropdownWrapper from "../NavDropdownWrapper";
 
-export default function BrandsButton() {
+interface BrandsButtonProps {
+  props: serializedProduct[];
+}
+
+export default function BrandsButton({ props }: BrandsButtonProps) {
   const [dropdown, showDropdown] = useState<boolean>(false);
+
+  const uniqueBrands: string[] = [];
+  props.forEach((product) => {
+    if (!uniqueBrands.includes(product.brand)) {
+      uniqueBrands.push(product.brand);
+    } else {
+      return;
+    }
+  });
   return (
     <li
       className={`relative flex justify-center hover:cursor-pointer font-semibold py-3 ${
@@ -47,8 +61,11 @@ export default function BrandsButton() {
           <div>
             <p className="subtitle">Popular Brands</p>
             <ul>
-              <li>Citizen</li>
-              <li>Bulova</li>
+              {uniqueBrands.map((product, index) => (
+                <li key={index} className="capitalize">
+                  {product}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="flex flex-1" />
