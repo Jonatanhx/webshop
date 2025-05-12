@@ -8,7 +8,7 @@ interface CartTotalProps {
 export default function CartTotal({ total }: CartTotalProps) {
   const shippingFee = 25;
   return (
-    <div>
+    <div className="flex flex-1">
       <div className="flex flex-col gap-8 flex-0 p-4 bg-neutral-200">
         {total && (
           <div>
