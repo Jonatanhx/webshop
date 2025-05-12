@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CartTotalProps {
   total: number | undefined;
@@ -33,9 +34,13 @@ export default function CartTotal({ total }: CartTotalProps) {
             Apply
           </button>
         </form>
-        <button className="text-white w-full h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150">
+
+        <Link
+          href="/checkout"
+          className="text-white w-full h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
+        >
           Go to checkout
-        </button>
+        </Link>
 
         <div className="flex flex-col gap-1">
           <p className="text-neutral-700">We accept</p>

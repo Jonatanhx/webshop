@@ -24,3 +24,54 @@ main {
   font-weight: bold;
   color: gray;
 }
+
+/* styles/CheckoutProgressBar.css */
+#checkout-progress-bar {
+  position: relative;
+  z-index: 30;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-step {
+  position: relative;
+  width: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-step::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid;
+  transform: translateX(2.5rem) translateY(1.25rem);
+  z-index: 10;
+}
+
+.progress-step:last-child::before {
+  display: none;
+}
+
+.progress-circle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid;
+  border-radius: 1.5rem;
+  background-color: white;
+  z-index: 20;
+  font-weight: 700;
+}
+
+.progress-label {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
