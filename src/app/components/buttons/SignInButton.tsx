@@ -7,7 +7,7 @@ export default function SignInButton() {
   }
   return (
     <button
-      className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 hover:cursor-pointer rounded-xl"
+      className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 hover:cursor-pointer rounded-xl duration-300"
       onClick={signInUser}
     >
       <p>Sign in</p>

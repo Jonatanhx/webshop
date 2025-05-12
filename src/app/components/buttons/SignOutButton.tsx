@@ -8,7 +8,7 @@ export default function SignOutButton() {
   }
   return (
     <button onClick={signOutUser}>
-      <p className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 hover:cursor-pointer rounded-xl">
+      <p className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 hover:cursor-pointer rounded-xl duration-300">
         Sign out
       </p>
     </button>

@@ -13,12 +13,6 @@ export default function UserBar() {
 
   return (
     <div className="flex justify-end">
-      <Link href="/profile" className="relative">
-        <Icon
-          icon="material-symbols-light:person-outline"
-          className="size-9  mt-2"
-        />
-      </Link>
       <Link href="/wishlist" className="relative">
         <div className="absolute top-0 right-0 bg-amber-400 rounded-3xl text-sm w-4 h-4 flex items-center justify-center">
           <p className="flex flex-1 justify-center items-center">

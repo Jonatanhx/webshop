@@ -6,11 +6,14 @@ import SignInButton from "./buttons/SignInButton";
 import SignOutButton from "./buttons/SignOutButton";
 import Navbar from "./Navbar";
 import SettingsBar from "./SettingsBar";
-import { User } from "./User";
 import UserBar from "./UserBar";
+import { UserDropdown } from "./UserDropdown";
 
 export default async function Header() {
   const session = await auth();
+
+  const user = session?.user;
+
   return (
     <header className="flex flex-col items-center sticky top-0 z-10 bg-white">
       <div className="flex pt-1 w-full px-6 items-center">
@@ -33,12 +36,20 @@ export default async function Header() {
           />
         </Link>
         <div className="flex items-center flex-1 justify-end gap-2">
-          {!session ? <SignInButton /> : <SignOutButton />}
-          <User />
+          {!session ? (
+            <SignInButton />
+          ) : (
+            <div className="flex flex-1 flex-col relative">
+              <div className="flex justify-end">
+                <SignOutButton />
+                <UserDropdown props={{ user }} />
+              </div>
+              <div id="user-dropdown-root" />
+            </div>
+          )}
         </div>
         <UserBar />
       </div>
-
       <Navbar />
       <div className="relative bg-white w-full z-10" id="nav-dropdown-root" />
     </header>
