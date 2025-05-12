@@ -59,7 +59,7 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
         <div className="flex flex-col gap-2">
           <button
             onClick={() => addToCart()}
-            className="w-[70%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer"
+            className="w-[70%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
           >
             <p className="text-white">Add to bag</p>
           </button>

@@ -18,7 +18,7 @@ export default async function Carousel() {
   }));
 
   return (
-    <ul className="flex items-center justify-center my-10 gap-4">
+    <ul className="flex items-center justify-center gap-4">
       {serializedProducts.map((product) => (
         <ProductCard key={product.id} props={product}>
           <Link href={`/mens-watches/${product.name}`}>
