@@ -17,8 +17,8 @@ export function UserDropdown({ props }: UserDropdownProps) {
     <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
-      className={`border-2  ${
-        isOpen ? "border-black border-b-0" : "border-transparent"
+      className={`border-2 border-b-0  ${
+        isOpen ? "border-black" : "border-transparent"
       } `}
     >
       <Link href="/profile">
@@ -29,16 +29,16 @@ export function UserDropdown({ props }: UserDropdownProps) {
       </Link>
       <UserDropdownWrapper>
         <div
-          className={`absolute right-0 w-[50%] bg-white flex flex-row overflow-hidden ${
-            isOpen ? "h-[8rem]" : "h-0"
+          className={` absolute right-0 w-[50%] bg-white flex flex-row overflow-hidden ${
+            isOpen ? "h-[12rem]" : "h-0"
           } `}
         >
           <div
-            className={`flex flex-col flex-1 ${
+            className={`p-4 flex flex-col flex-1 ${
               isOpen ? "border-2  border-r-0" : ""
             }`}
           >
-            <p>{props.user?.name}</p>
+            <p className="border-b">{props.user?.name}</p>
             <p>Your account</p>
             <p>Orders</p>
             <p>Return an order</p>

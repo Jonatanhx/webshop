@@ -40,7 +40,7 @@ export default async function Header() {
             <SignInButton />
           ) : (
             <div className="flex flex-1 flex-col relative">
-              <div className="flex justify-end">
+              <div className="flex justify-end gap-2">
                 <SignOutButton />
                 <UserDropdown props={{ user }} />
               </div>
