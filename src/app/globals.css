@@ -78,7 +78,6 @@ main {
 
 .input-field1 {
   padding: 0.75rem;
-  width: 50%;
   border-radius: 0.75rem;
   outline: solid 1 #737373;
 }
@@ -87,7 +86,6 @@ main {
 }
 
 .input-field2 {
-  width: 50%;
   border-radius: 0.75rem;
   outline: solid 1 #737373;
 }
@@ -109,4 +107,10 @@ main {
   cursor: pointer;
   opacity: 0.8;
   transition: 150ms;
+}
+
+.radio1 {
+  accent-color: black;
+  width: 1.6rem;
+  height: 1.6rem;
 }

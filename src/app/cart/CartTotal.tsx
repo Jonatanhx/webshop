@@ -35,7 +35,7 @@ export default function CartTotal({ total }: CartTotalProps) {
           </button>
         </form>
 
-        <Link href="/checkout" className="btn1">
+        <Link href="/checkout/address" className="btn1">
           Go to checkout
         </Link>
 

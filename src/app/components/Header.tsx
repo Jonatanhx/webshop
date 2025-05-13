@@ -15,7 +15,7 @@ export default async function Header() {
   const user = session?.user;
 
   return (
-    <header className="flex flex-col items-center sticky top-0 z-10 bg-white">
+    <header className="flex flex-col items-center sticky top-0 z-40 bg-white">
       <div className="flex pt-1 w-full px-6 items-center">
         <div className="flex flex-1"></div>
         <p className="subtitle">1-2 weekday delivery on most items*</p>
