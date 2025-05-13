@@ -13,9 +13,9 @@ export default function WishlistItems() {
     <div className="flex flex-col">
       <div className="flex">
         <div className="flex flex-1" />
-        <p className="text-3xl font-bold p-6 border-b border-neutral-400 mb-12">
+        <h1 className="heading p-6 border-b border-neutral-400 mb-12">
           Your items
-        </p>
+        </h1>
         <div className="flex flex-1" />
       </div>
       <div className="flex flex-1 gap-4 min-w-screen justify-center">

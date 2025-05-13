@@ -68,7 +68,7 @@ export default function CartItems() {
         </div>
       ) : (
         <section className="flex flex-col flex-1 items-center p-20 gap-28 w-[50%]">
-          <p className="font-semibold text-2xl">Your bag is empty</p>
+          <h1 className="heading">Your bag is empty</h1>
           <Link
             href="/"
             className="text-white w-[25%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"

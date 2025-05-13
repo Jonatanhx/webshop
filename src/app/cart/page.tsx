@@ -5,7 +5,7 @@ export default async function CartPage() {
   return (
     <main className="flex flex-col items-center pb-12 overflow-hidden">
       <CartItems />
-      <p className="w-full flex text-3xl font-bold ml-[35rem]">Best deals</p>
+      <span className="w-full flex ml-[35rem] heading">Best deals</span>
       <Carousel />
     </main>
   );

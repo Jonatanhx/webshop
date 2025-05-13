@@ -13,6 +13,11 @@ main {
   min-height: 100vh;
 }
 
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .title {
   font-size: 14px;
   font-weight: bold;

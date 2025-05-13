@@ -57,7 +57,7 @@ export default function AddressForm() {
       />
       <input type="text" required placeholder="City" className="input-field1" />
       <div className="flex flex-col gap-4">
-        <span className="text-lg font-semibold">Contact details</span>
+        <h2 className="text-lg font-semibold">Contact details</h2>
         <input
           type="email"
           required
