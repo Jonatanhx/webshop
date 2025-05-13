@@ -13,7 +13,7 @@ export default function PaymentForm() {
       <span className="text-2xl font-bold">Payment method</span>
       <form className="flex flex-col gap-4 my-4">
         <div className="border rounded-xl">
-          <div className="flex items-center gap-4 p-4">
+          <label className="flex items-center gap-4 p-4 text-lg">
             <input
               value="Swish"
               onChange={handleChange}
@@ -21,16 +21,16 @@ export default function PaymentForm() {
               name="paymentMethod"
               type="radio"
             />
-            <label className="text-lg">Swish</label>
-          </div>
+            Swish
+          </label>
           {selected === "Swish" && (
             <div className="border-t p-4">
               You will be forwarded to the Swish app to complete your payment.
             </div>
           )}
         </div>
-        <div className="flex flex-col justify-center border rounded-xl">
-          <div className="flex gap-4 p-4">
+        <div className="flex flex-col border rounded-xl">
+          <label className="flex gap-4 p-4 text-lg items-center">
             <input
               value="CreditCard"
               onChange={handleChange}
@@ -38,8 +38,8 @@ export default function PaymentForm() {
               name="paymentMethod"
               type="radio"
             />
-            <label className="text-lg">Credit / Debit Card</label>
-          </div>
+            Credit / Debit Card
+          </label>
           {selected === "CreditCard" && (
             <div className="flex flex-col gap-4 p-4 border-t">
               <input
@@ -61,7 +61,7 @@ export default function PaymentForm() {
           )}
         </div>
         <div className="border rounded-xl">
-          <div className="flex items-center gap-4 p-4">
+          <label className="flex items-center gap-4 p-4 text-lg">
             <input
               value="PayPal"
               onChange={handleChange}
@@ -69,16 +69,17 @@ export default function PaymentForm() {
               name="paymentMethod"
               type="radio"
             />
-            <label className="text-lg">PayPal</label>
-          </div>
+            PayPal
+          </label>
           {selected === "PayPal" && (
             <div className="border-t p-4">
-              {" "}
               You will be forwarded to the PayPal app to complete your payment.
             </div>
           )}
         </div>
-        <button className="btn1">Next</button>
+        <div className="flex flex-1 justify-end">
+          <button className="btn1 w-[33%]">Next</button>
+        </div>
       </form>
     </section>
   );
