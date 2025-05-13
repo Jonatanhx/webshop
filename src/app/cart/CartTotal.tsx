@@ -35,10 +35,7 @@ export default function CartTotal({ total }: CartTotalProps) {
           </button>
         </form>
 
-        <Link
-          href="/checkout"
-          className="text-white w-full h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
-        >
+        <Link href="/checkout" className="btn1">
           Go to checkout
         </Link>
 

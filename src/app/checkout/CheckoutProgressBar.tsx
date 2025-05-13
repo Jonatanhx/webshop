@@ -1,7 +1,8 @@
+"use client";
 export default function CheckoutProgressBar() {
   return (
     <ol id="checkout-progress-bar">
-      <li className="progress-step">
+      <li className="progress-step text-neutral-400">
         <span className="progress-circle">1</span>
         <span className="progress-label">Sign in</span>
       </li>

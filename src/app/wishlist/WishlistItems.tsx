@@ -21,13 +21,13 @@ export default function WishlistItems() {
       <div className="flex flex-1 gap-4 min-w-screen justify-center">
         {wishlist ? (
           wishlist.map((product) => (
-            <div key={product.id}>
+            <div key={product.id} className="flex flex-col gap-4">
               <ProductCard props={product}>
                 <Link href={`/mens-watches/${product.name}`}>
                   <CloudinaryImage props={product} />
                 </Link>
               </ProductCard>
-              <button className="w-full h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer my-4 hover:bg-black/70 duration-150">
+              <button className="btn1">
                 <p className="text-white">Add to bag</p>
               </button>
             </div>

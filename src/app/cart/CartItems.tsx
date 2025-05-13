@@ -3,6 +3,7 @@
 import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { CldImage } from "next-cloudinary";
+import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import CartTotal from "./CartTotal";
@@ -68,9 +69,12 @@ export default function CartItems() {
       ) : (
         <section className="flex flex-col flex-1 items-center p-20 gap-28 w-[50%]">
           <p className="font-semibold text-2xl">Your bag is empty</p>
-          <button className="text-white w-[25%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150">
+          <Link
+            href="/"
+            className="text-white w-[25%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
+          >
             Browse products
-          </button>
+          </Link>
         </section>
       )}
     </section>
