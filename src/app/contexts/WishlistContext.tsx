@@ -21,8 +21,22 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
   const [wishlist, setWishlist] = useState<serializedProduct[]>([]);
 
   useEffect(() => {
+    const currentWishlist = localStorage.getItem("wishlistItems");
+
+    if (currentWishlist) {
+      try {
+        const parsedWishlist = JSON.parse(currentWishlist);
+        setWishlist(parsedWishlist);
+      } catch (error) {
+        console.error("Failed to parse wishlist from local storage", error);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("wishlistItems", JSON.stringify(wishlist));
   }, [wishlist]);
+
   return (
     <WishlistContext.Provider value={{ wishlist, setWishlist }}>
       {children}
