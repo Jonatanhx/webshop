@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import PaymentSubmitButton from "./PaymentSubmitButton";
 
 export default function PaymentForm() {
   const [selected, setSelected] = useState<string>("");
@@ -73,9 +73,7 @@ export default function PaymentForm() {
           </div>
         )}
       </div>
-      <Link href="/checkout/confirm">
-        <button className="btn1 w-[33%] absolute bottom-0 right-0">Next</button>
-      </Link>
+      <PaymentSubmitButton />
     </form>
   );
 }

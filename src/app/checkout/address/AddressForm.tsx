@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import AddressSubmitButton from "./AddressSubmitButton";
 
 export default function AddressForm() {
   return (
@@ -75,11 +75,7 @@ export default function AddressForm() {
         <input type="checkbox" />
         <label>Save this information for next time</label>
       </div>
-      <Link href="/checkout/payment">
-        <button className="btn1 w-full" type="submit">
-          Save
-        </button>
-      </Link>
+      <AddressSubmitButton />
     </form>
   );
 }

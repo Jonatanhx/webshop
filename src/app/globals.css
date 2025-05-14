@@ -30,7 +30,6 @@ main {
   color: gray;
 }
 
-/* styles/CheckoutProgressBar.css */
 #checkout-progress-bar {
   position: relative;
   z-index: 30;
@@ -49,19 +48,6 @@ main {
   align-items: center;
 }
 
-.progress-step::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  border-top: 1px solid;
-  transform: translateX(2.5rem) translateY(1.25rem);
-  z-index: 10;
-}
-
-.progress-step:last-child::before {
-  display: none;
-}
-
 .progress-circle {
   position: relative;
   display: flex;
@@ -74,11 +60,14 @@ main {
   background-color: white;
   z-index: 20;
   font-weight: 700;
+  overflow: hidden;
 }
 
 .progress-label {
+  font-size: 12px;
   font-weight: 700;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .input-field1 {
