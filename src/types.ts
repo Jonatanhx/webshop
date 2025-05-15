@@ -7,3 +7,17 @@ export type serializedProduct = {
   images: string[];
   price: number;
 };
+
+export type AddressInputs = {
+  country: string;
+  firstName: string;
+  lastName: string;
+  address1: string;
+  address2: string;
+  postalCode: number;
+  city: string;
+  contactDetails: {
+    email: string;
+    phoneNumber: string;
+  };
+};
