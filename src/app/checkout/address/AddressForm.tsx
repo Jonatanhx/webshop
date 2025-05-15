@@ -1,26 +1,46 @@
 "use client";
 
-import { AddressInputs } from "@/types";
-import { getCookieByName } from "@/utils/helperFunctions";
-import { useEffect } from "react";
+import { AddressInputs, ContactDetails } from "@/types";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import AddressSubmitButton from "./AddressSubmitButton";
 
 export default function AddressForm() {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [address1, setAddress1] = useState<string>("");
+  const [address2, setAddress2] = useState<string>("");
+  const [postalCode, setPostalCode] = useState<string>("");
+  const [city, setCity] = useState<string>("");
+  const [country, setCountry] = useState<string>("");
+  const [contactDetails, setContactDetails] = useState<ContactDetails>({
+    email: "",
+    phoneNumber: "",
+  });
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<AddressInputs>();
 
   useEffect(() => {
-    console.log(getCookieByName("addressForm"));
+    const previousInputs = sessionStorage.getItem("addressFormData");
+    if (previousInputs) {
+      const parsedInputs: AddressInputs = JSON.parse(previousInputs);
+      setFirstName(parsedInputs.firstName);
+      setLastName(parsedInputs.lastName);
+      setAddress1(parsedInputs.address1);
+      setAddress2(parsedInputs.address2);
+      setPostalCode(parsedInputs.postalCode);
+      setCity(parsedInputs.city);
+      setContactDetails(parsedInputs.contactDetails);
+      setCountry(parsedInputs.country);
+    }
   }, []);
 
   const onSubmit: SubmitHandler<AddressInputs> = (data) => {
     const jsonData = JSON.stringify(data);
-    document.cookie = `addressForm=${jsonData};`;
+    sessionStorage.setItem("addressFormData", jsonData);
     console.log(data);
     return data;
   };
@@ -31,7 +51,16 @@ export default function AddressForm() {
       className="flex flex-col gap-4 my-4 w-full"
     >
       <div className="flex items-center justify-center input-field2 relative min-h-[2.4rem] p-4">
-        <select className="absolute w-[98%] h-[100%] px-2">
+        <select
+          value={country}
+          {...register("country", {
+            required: true,
+            onChange: (e) => {
+              setCountry(e.target.value);
+            },
+          })}
+          className="absolute w-[98%] h-[100%] px-2"
+        >
           <option value="">---</option>
           <option value="sweden">Sweden</option>
           <option value="sweden">Norway</option>
@@ -50,55 +79,109 @@ export default function AddressForm() {
       </div>
       <div className="flex gap-2">
         <input
+          value={firstName}
           type="text"
           className="input-field1"
           placeholder="First name"
-          {...register("firstName", { required: true })}
+          {...register("firstName", {
+            required: true,
+            onChange: (e) => {
+              setFirstName(e.target.value);
+            },
+          })}
         />
         <input
+          value={lastName}
           type="text"
           className="input-field1"
           placeholder="Last name"
-          {...register("lastName", { required: true })}
+          {...register("lastName", {
+            required: true,
+            onChange: (e) => {
+              setLastName(e.target.value);
+            },
+          })}
         />
       </div>
       <input
+        value={address1}
         type="text"
         className="input-field1"
         placeholder="Street & house number"
-        {...register("address1", { required: true })}
+        {...register("address1", {
+          required: true,
+          onChange: (e) => {
+            setAddress1(e.target.value);
+          },
+        })}
       />
       <input
+        value={address2}
         type="text"
         className="input-field1"
         placeholder="Apartment, suite, etc. (optional)"
-        {...register("address2", { required: false })}
+        {...register("address2", {
+          required: false,
+          onChange: (e) => {
+            setAddress2(e.target.value);
+          },
+        })}
       />
       <input
+        value={postalCode}
         type="text"
         className="input-field1"
         placeholder="Postal code"
-        {...register("postalCode", { required: true })}
+        {...register("postalCode", {
+          required: true,
+          onChange: (e) => {
+            setPostalCode(e.target.value);
+          },
+        })}
       />
       <input
+        value={city}
         type="text"
         className="input-field1"
         placeholder="City"
-        {...register("city", { required: true })}
+        {...register("city", {
+          required: true,
+          onChange: (e) => {
+            setCity(e.target.value);
+          },
+        })}
       />
       <div className="flex flex-col gap-4">
         <h2 className="text-lg font-semibold">Contact details</h2>
         <input
+          value={contactDetails.email}
           type="email"
           className="input-field1"
           placeholder="Email"
-          {...register("contactDetails.email", { required: true })}
+          {...register("contactDetails.email", {
+            required: true,
+            onChange: (e) => {
+              setContactDetails((contactDetails) => ({
+                ...contactDetails,
+                email: e.target.value,
+              }));
+            },
+          })}
         />
         <input
+          value={contactDetails.phoneNumber}
           type="text"
           className="input-field1"
           placeholder="Phone"
-          {...register("contactDetails.phoneNumber", { required: true })}
+          {...register("contactDetails.phoneNumber", {
+            required: true,
+            onChange: (e) => {
+              setContactDetails((contactDetails) => ({
+                ...contactDetails,
+                phoneNumber: e.target.value,
+              }));
+            },
+          })}
         />
       </div>
       <div className="flex gap-2">

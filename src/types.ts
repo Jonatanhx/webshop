@@ -14,10 +14,12 @@ export type AddressInputs = {
   lastName: string;
   address1: string;
   address2: string;
-  postalCode: number;
+  postalCode: string;
   city: string;
-  contactDetails: {
-    email: string;
-    phoneNumber: string;
-  };
+  contactDetails: ContactDetails;
+};
+
+export type ContactDetails = {
+  email: string;
+  phoneNumber: string;
 };
