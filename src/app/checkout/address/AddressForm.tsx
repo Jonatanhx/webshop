@@ -1,9 +1,9 @@
 "use client";
 
 import { AddressInputs, ContactDetails } from "@/types";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import AddressSubmitButton from "./AddressSubmitButton";
 
 export default function AddressForm() {
   const [firstName, setFirstName] = useState<string>("");
@@ -17,6 +17,8 @@ export default function AddressForm() {
     email: "",
     phoneNumber: "",
   });
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -42,7 +44,7 @@ export default function AddressForm() {
     const jsonData = JSON.stringify(data);
     sessionStorage.setItem("addressFormData", jsonData);
     console.log(data);
-    return data;
+    router.push("/checkout/payment");
   };
 
   return (
@@ -188,7 +190,9 @@ export default function AddressForm() {
         <input type="checkbox" />
         <label>Save this information for next time</label>
       </div>
-      <AddressSubmitButton />
+      <button className="btn1 w-full" type="submit">
+        Save
+      </button>
     </form>
   );
 }

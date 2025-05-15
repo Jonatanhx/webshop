@@ -1,28 +1,62 @@
 "use client";
 
-import { useState } from "react";
-import PaymentSubmitButton from "./PaymentSubmitButton";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+type selectedPaymentMethod = {
+  selectedMethod: string;
+};
 
 export default function PaymentForm() {
-  const [selected, setSelected] = useState<string>("");
+  const [selectedMethod, setSelectedMethod] = useState<selectedPaymentMethod>({
+    selectedMethod: "",
+  });
+  const router = useRouter();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelected(e.target.value);
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<selectedPaymentMethod>();
+
+  useEffect(() => {
+    const previousInput = sessionStorage.getItem("selectedPaymentMethod");
+    if (previousInput) {
+      const parsedData = JSON.parse(previousInput);
+      console.log(parsedData);
+      setSelectedMethod(parsedData);
+      setValue("selectedMethod", parsedData.selectedMethod);
+    }
+  }, []);
+
+  const onSubmit: SubmitHandler<selectedPaymentMethod> = (data) => {
+    console.log(data);
+    sessionStorage.setItem("selectedPaymentMethod", JSON.stringify(data));
+    router.push("/checkout/confirm");
   };
+
   return (
-    <form className="flex flex-col gap-4 my-4">
+    <form
+      className="flex flex-col gap-4 my-4"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="border rounded-xl">
         <label className="flex items-center gap-4 p-4 text-lg">
           <input
             value="Swish"
-            onChange={handleChange}
             className="radio1"
-            name="paymentMethod"
             type="radio"
+            {...register("selectedMethod", {
+              onChange: (e) => {
+                setSelectedMethod(e.target.value);
+              },
+            })}
           />
           Swish
         </label>
-        {selected === "Swish" && (
+        {selectedMethod.selectedMethod === "Swish" && (
           <div className="border-t p-4">
             You will be forwarded to the Swish app to complete your payment.
           </div>
@@ -32,14 +66,17 @@ export default function PaymentForm() {
         <label className="flex gap-4 p-4 text-lg items-center">
           <input
             value="CreditCard"
-            onChange={handleChange}
             className="radio1"
-            name="paymentMethod"
             type="radio"
+            {...register("selectedMethod", {
+              onChange: (e) => {
+                setSelectedMethod(e.target.value);
+              },
+            })}
           />
           Credit / Debit Card
         </label>
-        {selected === "CreditCard" && (
+        {selectedMethod.selectedMethod === "CreditCard" && (
           <div className="flex flex-col gap-4 p-4 border-t">
             <input placeholder="Card number" className="input-field1 w-full" />
             <div className="flex gap-2">
@@ -59,21 +96,26 @@ export default function PaymentForm() {
       <div className="border rounded-xl">
         <label className="flex items-center gap-4 p-4 text-lg">
           <input
-            value="PayPal"
-            onChange={handleChange}
+            value={"PayPal"}
             className="radio1"
-            name="paymentMethod"
             type="radio"
+            {...register("selectedMethod", {
+              onChange: (e) => {
+                setSelectedMethod(e.target.value);
+              },
+            })}
           />
           PayPal
         </label>
-        {selected === "PayPal" && (
+        {selectedMethod.selectedMethod === "PayPal" && (
           <div className="border-t p-4">
             You will be forwarded to the PayPal app to complete your payment.
           </div>
         )}
       </div>
-      <PaymentSubmitButton />
+      <button className="btn1 w-[33%] absolute bottom-0 right-0" type="submit">
+        Next
+      </button>
     </form>
   );
 }
