@@ -1,16 +1,36 @@
 "use client";
 import { CartContext } from "@/app/contexts/CartContext";
+import { AddressInputs, selectedPaymentMethod } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function OrderSummary() {
+  const shippingFee = 25;
   const context = useContext(CartContext);
+
+  const [address, setAddress] = useState<AddressInputs | undefined>(undefined);
+  const [paymentMethod, setPaymentMethod] = useState<
+    selectedPaymentMethod | undefined
+  >(undefined);
+
+  useEffect(() => {
+    const addressData = sessionStorage.getItem("addressFormData");
+    const paymentMethodData = sessionStorage.getItem("selectedPaymentMethod");
+
+    if (addressData) {
+      setAddress(JSON.parse(addressData));
+    }
+
+    if (paymentMethodData) {
+      setPaymentMethod(JSON.parse(paymentMethodData));
+    }
+  }, []);
+
   return (
     <div className="flex flex-1 w-full">
       <section className="flex flex-1 flex-col p-4 gap-6">
-        <h1 className="heading">Order summary</h1>
         <div className="flex flex-col gap-2">
           <span className="text-lg font-semibold">Order</span>
           <span>Parcel shipped by Peluche</span>
@@ -22,13 +42,13 @@ export default function OrderSummary() {
             >
               <div className="flex justify-end"></div>
               <div className="flex">
-                <div className="relative w-[8rem] h-[10rem]">
+                <div className="relative w-[6rem] h-[10rem] overflow-hidden">
                   <CldImage
                     alt={cartItem.name}
                     src={cartItem.images[0]}
-                    fill
-                    crop="fill"
-                    className="object-contain object-center"
+                    width={300}
+                    height={200}
+                    className="object-cover object-center w-full h-full"
                     sizes="100%"
                   />
                 </div>
@@ -43,27 +63,56 @@ export default function OrderSummary() {
         </div>
       </section>
 
-      <aside className="flex flex-1 flex-col gap-8 p-4 bg-neutral-100 relative">
-        <div className="flex flex-col">
-          <span className="text-lg font-semibold">Delivery adress</span>
-          <span>Sveagatan 1a</span>
-          <span>54991 MALMÖ</span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-lg font-semibold">Billing address</span>
-          <span>Jonatan Helander</span>
-          <span>Sveagatan 1a</span>
-          <span>54991 MALMÖ</span>
-          <span>Sweden</span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-lg font-semibold">Payment method</span>
-          <Icon icon="logos:mastercard" className="size-8" />
-        </div>
+      <aside className="flex flex-1 flex-col gap-5 p-4 bg-neutral-100 relative">
+        {address && (
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col">
+              <span className="text-lg font-semibold capitalize">
+                Delivery adress
+              </span>
+              <span className="capitalize">{address.address1}</span>
+              <span className="capitalize">{address.address2}</span>
+              <span>
+                {address.postalCode} {address.city}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-semibold">Billing address</span>
+              <span className="capitalize">
+                {address.firstName} {address.lastName}
+              </span>
+              <span className="capitalize">{address.address1}</span>
+              <span className="capitalize">
+                {address.postalCode} {address.city}
+              </span>
+              <span className="capitalize">{address.country}</span>
+            </div>
+          </div>
+        )}
+        {paymentMethod && (
+          <div className="flex flex-col">
+            <span className="text-lg font-semibold">Payment method</span>
+            <Icon icon="logos:mastercard" className="size-8" />
+          </div>
+        )}
         <input
           className="border p-3 rounded-xl bg-white max-w-[33%]"
           placeholder="Discount code or gift card"
         />
+        <div className="flex flex-col max-w-[33%]">
+          <div className="flex flex-col border-b py-4">
+            <span className="text-md">Subtotal: ${context?.total}.00</span>
+            <span className="text-md">Delivery: ${shippingFee}.00</span>
+          </div>
+          {context && (
+            <span className="text-md font-semibold pt-2">
+              Total: ${context.total + shippingFee}.00
+            </span>
+          )}
+          <span className="text-neutral-700 text-sm">
+            Including $13.00 in taxes
+          </span>
+        </div>
         <Link href="/checkout/completed" className="btn1 w-[33%]">
           Confirm
         </Link>

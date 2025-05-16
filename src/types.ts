@@ -13,7 +13,7 @@ export type AddressInputs = {
   firstName: string;
   lastName: string;
   address1: string;
-  address2: string;
+  address2?: string;
   postalCode: string;
   city: string;
   contactDetails: ContactDetails;
@@ -22,4 +22,8 @@ export type AddressInputs = {
 export type ContactDetails = {
   email: string;
   phoneNumber: string;
+};
+
+export type selectedPaymentMethod = {
+  selectedMethod: string;
 };

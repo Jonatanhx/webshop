@@ -9,7 +9,7 @@ export default function AddressForm() {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [address1, setAddress1] = useState<string>("");
-  const [address2, setAddress2] = useState<string>("");
+  const [address2, setAddress2] = useState<string | undefined>(undefined);
   const [postalCode, setPostalCode] = useState<string>("");
   const [city, setCity] = useState<string>("");
   const [country, setCountry] = useState<string>("");
@@ -19,12 +19,7 @@ export default function AddressForm() {
   });
   const router = useRouter();
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<AddressInputs>();
+  const { register, handleSubmit, setValue } = useForm<AddressInputs>();
 
   useEffect(() => {
     const previousInputs = sessionStorage.getItem("addressFormData");

@@ -14,15 +14,17 @@ export default function CartTotal({ total }: CartTotalProps) {
         {total && (
           <div>
             <div className="border-b py-4">
-              <p className="text-md">Subtotal: ${total}.00</p>
+              <span className="text-md">Subtotal: ${total}.00</span>
               <p className="text-md">Delivery: ${shippingFee}.00</p>
             </div>
-            <p className="text-md font-semibold pt-2">
-              Total: ${total + shippingFee}.00
-            </p>
-            <p className="text-neutral-700 text-sm">
-              Including $13.00 in taxes
-            </p>
+            <div className="flex flex-col">
+              <span className="text-md font-semibold pt-2">
+                Total: ${total + shippingFee}.00
+              </span>
+              <span className="text-neutral-700 text-sm">
+                Including $13.00 in taxes
+              </span>
+            </div>
           </div>
         )}
         <form className="flex gap-3">
@@ -40,7 +42,7 @@ export default function CartTotal({ total }: CartTotalProps) {
         </Link>
 
         <div className="flex flex-col gap-1">
-          <p className="text-neutral-700">We accept</p>
+          <span className="text-neutral-700">We accept</span>
           <ul className="relative flex items-center gap-3">
             <li>
               <Icon icon="logos:mastercard" className="size-8" />

@@ -1,12 +1,9 @@
 "use client";
 
+import { selectedPaymentMethod } from "@/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-type selectedPaymentMethod = {
-  selectedMethod: string;
-};
 
 export default function PaymentForm() {
   const [selectedMethod, setSelectedMethod] = useState<selectedPaymentMethod>({
@@ -14,12 +11,7 @@ export default function PaymentForm() {
   });
   const router = useRouter();
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<selectedPaymentMethod>();
+  const { register, handleSubmit, setValue } = useForm<selectedPaymentMethod>();
 
   useEffect(() => {
     const previousInput = sessionStorage.getItem("selectedPaymentMethod");
