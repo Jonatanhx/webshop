@@ -7,10 +7,11 @@ export default function SignOutButton() {
     await signOut();
   }
   return (
-    <button onClick={signOutUser}>
-      <p className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 hover:cursor-pointer rounded-xl duration-300">
-        Sign out
-      </p>
+    <button
+      onClick={signOutUser}
+      className="max-h-[2rem] bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300"
+    >
+      <span className="text-white">Sign out</span>
     </button>
   );
 }

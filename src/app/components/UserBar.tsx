@@ -19,7 +19,7 @@ export default function UserBar() {
             {wishlistItemCount}
           </p>
         </div>
-        <Icon icon="mdi-light:heart" className="size-8 mt-2" />
+        <Icon icon="mdi-light:heart" className="size-[1.9rem] mt-2" />
       </Link>
 
       <Link href="/cart" className="relative">
@@ -30,7 +30,7 @@ export default function UserBar() {
         </div>
         <Icon
           icon="material-symbols-light:shopping-bag-outline"
-          className="size-8  mt-2"
+          className="size-[1.9rem]  mt-2"
         />
       </Link>
     </div>
