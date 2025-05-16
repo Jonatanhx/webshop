@@ -3,13 +3,13 @@ import { CartContext } from "@/app/contexts/CartContext";
 import { AddressInputs, selectedPaymentMethod } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { CldImage } from "next-cloudinary";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
 export default function OrderSummary() {
   const shippingFee = 25;
   const context = useContext(CartContext);
-
+  const router = useRouter();
   const [address, setAddress] = useState<AddressInputs | undefined>(undefined);
   const [paymentMethod, setPaymentMethod] = useState<
     selectedPaymentMethod | undefined
@@ -27,6 +27,11 @@ export default function OrderSummary() {
       setPaymentMethod(JSON.parse(paymentMethodData));
     }
   }, []);
+
+  function handleSubmit() {
+    router.push("/checkout/completed");
+    sessionStorage.clear();
+  }
 
   return (
     <div className="flex flex-1 w-full">
@@ -113,9 +118,9 @@ export default function OrderSummary() {
             Including $13.00 in taxes
           </span>
         </div>
-        <Link href="/checkout/completed" className="btn1 w-[33%]">
+        <button onClick={handleSubmit} className="btn1 w-[33%]">
           Confirm
-        </Link>
+        </button>
       </aside>
     </div>
   );
