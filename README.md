@@ -13,4 +13,4 @@ Generically titled "webshop" is my first full scale project for my portfolio, a 
 
 ## View this project
 
-link coming soon
+https://webshop-jonatanhxs-projects.vercel.app/
