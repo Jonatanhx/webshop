@@ -23,8 +23,8 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
   });
   return (
     <li
-      className={`relative flex justify-center hover:cursor-pointer font-semibold py-3 ${
-        context?.isOpen && "underline underline-offset-4"
+      className={`relative flex justify-center hover:cursor-pointer font-semibold px-2 py-3 ${
+        context?.hoveredItem === "brands" && "underline underline-offset-4"
       }`}
       onMouseOver={() => {
         context?.setIsOpen(true);

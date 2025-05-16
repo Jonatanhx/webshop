@@ -24,7 +24,9 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
         context?.setIsOpen(false);
         context?.setHoveredItem("");
       }}
-      className="flex hover:cursor-pointer capitalize font-semibold py-3"
+      className={`flex hover:cursor-pointer capitalize font-semibold px-2 py-3 ${
+        context?.hoveredItem === props.name && "underline underline-offset-4"
+      }`}
     >
       {props.name.replace("-", " ")}
       <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
