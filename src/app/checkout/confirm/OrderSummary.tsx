@@ -31,6 +31,7 @@ export default function OrderSummary() {
   function handleSubmit() {
     router.push("/checkout/completed");
     sessionStorage.clear();
+    context?.setCart([]);
   }
 
   return (
