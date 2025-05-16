@@ -22,6 +22,7 @@ export default function AddressForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<AddressInputs>();
 
@@ -37,6 +38,19 @@ export default function AddressForm() {
       setCity(parsedInputs.city);
       setContactDetails(parsedInputs.contactDetails);
       setCountry(parsedInputs.country);
+
+      setValue("firstName", parsedInputs.firstName);
+      setValue("lastName", parsedInputs.lastName);
+      setValue("address1", parsedInputs.address1);
+      setValue("address2", parsedInputs.address2);
+      setValue("postalCode", parsedInputs.postalCode);
+      setValue("city", parsedInputs.city);
+      setValue("country", parsedInputs.country);
+      setValue("contactDetails.email", parsedInputs.contactDetails.email);
+      setValue(
+        "contactDetails.phoneNumber",
+        parsedInputs.contactDetails.phoneNumber
+      );
     }
   }, []);
 

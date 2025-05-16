@@ -29,7 +29,7 @@ export default function CartItems() {
             </h1>
           </div>
 
-          <div className="flex gap-48">
+          <div className="flex gap-48 my-12">
             <div className="flex flex-1 flex-col items-end">
               {cart?.cart.map((cartItem, index) => (
                 <div
