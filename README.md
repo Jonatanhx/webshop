@@ -4,12 +4,12 @@ Generically titled "webshop" is my first full scale project for my portfolio, a 
 
 ## Tech stack
 
-TypeScript
-React
-NextJs
-Prisma ORM
-PostgreSQL using supabase
-Cloudinary (for storing images)
+- TypeScript
+- React
+- NextJs
+- Prisma ORM
+- PostgreSQL using supabase
+- Cloudinary (for storing images)
 
 ## View this project
 
