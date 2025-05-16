@@ -50,7 +50,10 @@ export default function PaymentForm() {
             type="radio"
             {...register("selectedMethod", {
               onChange: (e) => {
-                setSelectedMethod(e.target.value);
+                setSelectedMethod({
+                  ...selectedMethod,
+                  selectedMethod: e.target.value,
+                });
               },
             })}
           />
@@ -70,7 +73,10 @@ export default function PaymentForm() {
             type="radio"
             {...register("selectedMethod", {
               onChange: (e) => {
-                setSelectedMethod(e.target.value);
+                setSelectedMethod({
+                  ...selectedMethod,
+                  selectedMethod: e.target.value,
+                });
               },
             })}
           />
@@ -101,7 +107,10 @@ export default function PaymentForm() {
             type="radio"
             {...register("selectedMethod", {
               onChange: (e) => {
-                setSelectedMethod(e.target.value);
+                setSelectedMethod({
+                  ...selectedMethod,
+                  selectedMethod: e.target.value,
+                });
               },
             })}
           />
