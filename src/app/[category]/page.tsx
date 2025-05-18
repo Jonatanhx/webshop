@@ -1,9 +1,10 @@
 import { serializedProduct } from "@/types";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import { prisma } from "../../../lib/prisma";
 import CloudinaryImage from "../components/CloudinaryImage";
 import ProductCard from "../components/ProductCard";
+import FilterByBrandButton from "./FilterByBrandButton";
+import SortByButton from "./SortByButton";
 
 export default async function CategoriesPage(props0: {
   params: Promise<{ category: string }>;
@@ -18,6 +19,9 @@ export default async function CategoriesPage(props0: {
           },
         },
       },
+    },
+    orderBy: {
+      price: "desc",
     },
   });
 
@@ -39,24 +43,16 @@ export default async function CategoriesPage(props0: {
     select: { brand: true },
   });
   return (
-    <main className="flex flex-col flex-1 text-white px-36">
-      <section className="flex">
-        <button className="flex px-3 py-1 border">
-          Sort by <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
-        </button>
-        <ul>
-          {brands.map((brand, index) => (
-            <li className="capitalize" key={index}>
-              {brand.brand}
-            </li>
-          ))}
-        </ul>
+    <main className="flex flex-col flex-1 px-36">
+      <section className="flex justify-end py-4 gap-4">
+        <SortByButton />
+        <FilterByBrandButton props={brands} />
       </section>
       <section>
         <ul className="grid grid-cols-6">
           {serializedProducts.map((product) => (
             <ProductCard key={product.id} props={product}>
-              <Link href={`/mens-watches/${product.name}`}>
+              <Link href={`/${params.category}/${product.name}`}>
                 <CloudinaryImage props={product} />
               </Link>
             </ProductCard>
