@@ -10,6 +10,7 @@ Generically titled "webshop" is my first full scale project for my portfolio, a 
 - Prisma ORM
 - PostgreSQL using supabase
 - Cloudinary (for storing images)
+- Next auth
 
 ## View this project
 
