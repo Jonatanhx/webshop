@@ -27,3 +27,5 @@ export type ContactDetails = {
 export type selectedPaymentMethod = {
   selectedMethod: string;
 };
+
+export type SortOrder = "asc" | "desc";
