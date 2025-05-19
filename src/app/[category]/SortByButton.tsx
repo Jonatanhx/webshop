@@ -6,7 +6,6 @@ export default function SortByButton() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
-  console.log(params);
   const SortByOptions: string[] = [
     "Trending",
     "Lowest Price",
