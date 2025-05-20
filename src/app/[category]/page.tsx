@@ -20,7 +20,7 @@ export default async function CategoriesPage(props0: {
   const uniqueBrandsArray = uniqueBrands.map((obj) => obj.brand);
 
   return (
-    <main className="flex flex-col flex-1 px-36">
+    <main className="flex flex-col h-full px-36">
       <section className="flex justify-end py-4 gap-4">
         <SortByButton />
         <FilterByBrandButton props={uniqueBrandsArray} />

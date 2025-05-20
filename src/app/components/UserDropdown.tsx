@@ -17,7 +17,7 @@ export function UserDropdown({ props }: UserDropdownProps) {
     <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
-      className={`border-2 border-b-0  ${
+      className={`border-2 border-b-0 px-1 ${
         isOpen ? "border-black" : "border-transparent"
       } `}
     >
@@ -39,13 +39,13 @@ export function UserDropdown({ props }: UserDropdownProps) {
             }`}
           >
             <p className="border-b">{props.user?.name}</p>
-            <p>Your account</p>
+            <Link href="/profile">Your account</Link>
             <p>Orders</p>
             <p>Return an order</p>
             <p>Help & FAQ</p>
           </div>
           <div
-            className={`flex w-[2.4rem] ${
+            className={`flex w-[2.9rem] ${
               isOpen ? "border-r-2 border-b-2" : ""
             }`}
           />

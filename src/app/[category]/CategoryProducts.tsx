@@ -53,16 +53,25 @@ export default async function CategoryProducts({
     })
   );
   return (
-    <section>
-      <ul className="grid grid-cols-6">
-        {serializedProducts.map((product) => (
-          <ProductCard key={product.id} props={product}>
-            <Link href={`/${props.params.category}/${product.name}`}>
-              <CloudinaryImage props={product} />
-            </Link>
-          </ProductCard>
-        ))}
-      </ul>
+    <section className="flex justify-center flex-1">
+      {serializedProducts.length > 0 ? (
+        <ul className="grid grid-cols-6">
+          {serializedProducts.map((product) => (
+            <ProductCard key={product.id} props={product}>
+              <Link href={`/${props.params.category}/${product.name}`}>
+                <CloudinaryImage props={product} />
+              </Link>
+            </ProductCard>
+          ))}
+        </ul>
+      ) : (
+        <div className="flex flex-col items-center justify-center gap-32 h-[25rem]">
+          <span className="text-xl font-semibold">
+            No products could be found for this filter.
+          </span>
+          <button className="btn1 w-full text-lg">Return to start page</button>
+        </div>
+      )}
     </section>
   );
 }
