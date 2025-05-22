@@ -29,3 +29,8 @@ export type selectedPaymentMethod = {
 };
 
 export type SortOrder = "asc" | "desc";
+
+export type faqQA = {
+  question: string;
+  answer: string;
+};
