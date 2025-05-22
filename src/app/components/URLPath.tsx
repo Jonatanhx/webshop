@@ -17,7 +17,7 @@ export default function URLPath() {
       {params.map((param, index) => (
         <div key={index} className="flex">
           <p className="px-2">/</p>
-          <Link href={`/${param}`} className="hover:border-b">
+          <Link href={`/watches/${param}`} className="hover:border-b">
             <p className="capitalize">{param.replace("-", " ")}</p>
           </Link>
         </div>

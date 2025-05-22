@@ -27,7 +27,7 @@ export default async function Navbar() {
       <ul className="flex">
         <BrandsDropdown props={serializedProducts} />
         {categories.map((category) => (
-          <Link href={`/${category.name}`} key={category.id}>
+          <Link href={`/watches/${category.name}`} key={category.id}>
             <CategoriesDropdown props={category} />
           </Link>
         ))}

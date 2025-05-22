@@ -1,7 +1,7 @@
 import ProductDisplay from "@/app/components/ProductDisplay";
 import { serializedProduct } from "@/types";
 import Link from "next/link";
-import { prisma } from "../../../../lib/prisma";
+import { prisma } from "../../../../../lib/prisma";
 
 export default async function ProductPage(props0: {
   params: Promise<{ category: string; slug: string }>;

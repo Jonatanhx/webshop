@@ -23,7 +23,7 @@ export default function WishlistItems() {
           wishlist.map((product) => (
             <div key={product.id} className="flex flex-col gap-4">
               <ProductCard props={product}>
-                <Link href={`/mens-watches/${product.name}`}>
+                <Link href={`/watches/mens-watches/${product.name}`}>
                   <CloudinaryImage props={product} />
                 </Link>
               </ProductCard>

@@ -34,15 +34,26 @@ export function UserDropdown({ props }: UserDropdownProps) {
           } `}
         >
           <div
-            className={`p-4 flex flex-col flex-1 ${
+            className={`p-4 flex flex-col gap-2 flex-1 ${
               isOpen ? "border-2  border-r-0" : ""
             }`}
           >
             <p className="border-b">{props.user?.name}</p>
-            <Link href="/profile">Your account</Link>
-            <p>Orders</p>
-            <p>Return an order</p>
-            <p>Help & FAQ</p>
+            <Link
+              href="/profile"
+              className="no-underline hover:underline hover:underline-offset-4 self-start"
+            >
+              Your account
+            </Link>
+            <p className="no-underline hover:underline hover:underline-offset-4 self-start">
+              Orders
+            </p>
+            <p className="no-underline hover:underline hover:underline-offset-4 self-start">
+              Return an order
+            </p>
+            <p className="no-underline hover:underline hover:underline-offset-4 self-start">
+              Help & FAQ
+            </p>
           </div>
           <div
             className={`flex w-[2.9rem] ${

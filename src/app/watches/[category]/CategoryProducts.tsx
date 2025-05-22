@@ -1,9 +1,8 @@
+import CloudinaryImage from "@/app/components/CloudinaryImage";
+import ProductCard from "@/app/components/ProductCard";
 import { serializedProduct, SortOrder } from "@/types";
 import Link from "next/link";
-import { prisma } from "../../../lib/prisma";
-import CloudinaryImage from "../components/CloudinaryImage";
-import ProductCard from "../components/ProductCard";
-
+import { prisma } from "../../../../lib/prisma";
 interface CategoryProductsProps {
   props: {
     params: {
@@ -58,7 +57,7 @@ export default async function CategoryProducts({
         <ul className="grid grid-cols-6">
           {serializedProducts.map((product) => (
             <ProductCard key={product.id} props={product}>
-              <Link href={`/${props.params.category}/${product.name}`}>
+              <Link href={`/watches/${props.params.category}/${product.name}`}>
                 <CloudinaryImage props={product} />
               </Link>
             </ProductCard>

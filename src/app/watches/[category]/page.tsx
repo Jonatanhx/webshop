@@ -1,5 +1,5 @@
 import { SortOrder } from "@/types";
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "../../../../lib/prisma";
 import CategoryProducts from "./CategoryProducts";
 import FilterByBrandButton from "./FilterByBrandButton";
 import SortByButton from "./SortByButton";

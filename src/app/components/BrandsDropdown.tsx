@@ -2,6 +2,7 @@
 
 import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import Link from "next/link";
 import { useContext } from "react";
 import { NavDropdownContext } from "../contexts/NavDropdownContext";
 import NavDropdownWrapper from "./NavDropdownWrapper";
@@ -56,23 +57,22 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
             <div>
               <p className="subtitle">Discover</p>
               <ul>
-                <li className="capitalize hover:cursor-pointer border-b border-transparent hover:border-black">
+                <li className="capitalize no-underline hover:underline underline-offset-4">
                   View all
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="flex flex-col">
               <p className="subtitle">Trending Watches</p>
-              <ul>
-                {trending.map((product) => (
-                  <li
-                    className="capitalize border-b border-transparent hover:border-black hover:cursor-pointer"
-                    key={product.id}
-                  >
-                    {product.name.replace("-", " ")}
-                  </li>
-                ))}
-              </ul>
+              {trending.map((product) => (
+                <Link
+                  href={`/watches/mens-watches/${product.name}`}
+                  className="capitalize no-underline hover:underline underline-offset-4 hover:cursor-pointer"
+                  key={product.id}
+                >
+                  {product.name.replace("-", " ")}
+                </Link>
+              ))}
             </div>
             <div>
               <p className="subtitle">Popular Brands</p>
@@ -80,7 +80,7 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
                 {uniqueBrands.map((product, index) => (
                   <li
                     key={index}
-                    className="capitalize hover:cursor-pointer border-b border-transparent hover:border-black"
+                    className="capitalize hover:cursor-pointer no-underline hover:underline underline-offset-4"
                   >
                     {product}
                   </li>
