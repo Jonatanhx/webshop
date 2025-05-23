@@ -4,11 +4,11 @@ import { serializedProduct } from "@/types";
 import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 
-interface CloudinaryImageProps {
+interface CarouselImageProps {
   props: serializedProduct;
 }
 
-export default function CloudinaryImage({ props }: CloudinaryImageProps) {
+export default function CarouselImage({ props }: CarouselImageProps) {
   const [hover, setHover] = useState<boolean>(false);
   return (
     <div>

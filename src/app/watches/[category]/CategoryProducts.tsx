@@ -1,4 +1,4 @@
-import CloudinaryImage from "@/app/components/CloudinaryImage";
+import CarouselImage from "@/app/components/CarouselImage";
 import ProductCard from "@/app/components/ProductCard";
 import { serializedProduct, SortOrder } from "@/types";
 import Link from "next/link";
@@ -58,7 +58,7 @@ export default async function CategoryProducts({
           {serializedProducts.map((product) => (
             <ProductCard key={product.id} props={product}>
               <Link href={`/watches/${props.params.category}/${product.name}`}>
-                <CloudinaryImage props={product} />
+                <CarouselImage props={product} />
               </Link>
             </ProductCard>
           ))}

@@ -20,7 +20,7 @@ export default function ProfilePage() {
         </Link>
         <Link
           className="no-underline hover:underline hover:underline-offset-8 self-start text-xl"
-          href="/profile/orderhistory"
+          href="/profile/orders"
         >
           Order history
         </Link>
