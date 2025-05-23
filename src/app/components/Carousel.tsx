@@ -1,7 +1,7 @@
 import { serializedProduct } from "@/types";
 import Link from "next/link";
 import { prisma } from "../../../lib/prisma";
-import CarouselImage from "./CarouselImage";
+import CarouselImages from "./CarouselImage";
 import ProductCard from "./ProductCard";
 
 export default async function Carousel() {
@@ -22,7 +22,7 @@ export default async function Carousel() {
       {serializedProducts.map((product) => (
         <ProductCard key={product.id} props={product}>
           <Link href={`/watches/mens-watches/${product.name}`}>
-            <CarouselImage props={product} />
+            <CarouselImages props={product} />
           </Link>
         </ProductCard>
       ))}

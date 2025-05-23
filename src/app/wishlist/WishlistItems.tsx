@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useContext } from "react";
-import CarouselImage from "../components/CarouselImage";
+import CarouselImages from "../components/CarouselImage";
 import ProductCard from "../components/ProductCard";
 import { WishlistContext } from "../contexts/WishlistContext";
 
@@ -24,7 +24,7 @@ export default function WishlistItems() {
             <div key={product.id} className="flex flex-col gap-4">
               <ProductCard props={product}>
                 <Link href={`/watches/mens-watches/${product.name}`}>
-                  <CarouselImage props={product} />
+                  <CarouselImages props={product} />
                 </Link>
               </ProductCard>
               <button className="btn1">

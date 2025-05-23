@@ -13,7 +13,7 @@ export default function CarouselImage({ props }: CarouselImageProps) {
   return (
     <div>
       {props.images.length > 1 ? (
-        <div className="relative  w-[12rem] h-[20rem] overflow-hidden">
+        <div className="relative w-[12rem] h-[20rem] overflow-hidden">
           <CldImage
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
