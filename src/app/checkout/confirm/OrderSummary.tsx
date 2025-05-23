@@ -1,16 +1,22 @@
 "use client";
 import { CartContext } from "@/app/contexts/CartContext";
-import { AddressInputs, selectedPaymentMethod } from "@/types";
+import {
+  AddressInputs,
+  selectedPaymentMethod,
+  serializedProduct,
+} from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { CldImage } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
+import { createOrder } from "../../../../prisma/createOrder";
 
 export default function OrderSummary() {
   const shippingFee = 25;
   const context = useContext(CartContext);
   const router = useRouter();
   const [address, setAddress] = useState<AddressInputs | undefined>(undefined);
+  const [cartItems, setCartItems] = useState<serializedProduct[]>([]);
   const [paymentMethod, setPaymentMethod] = useState<
     selectedPaymentMethod | undefined
   >(undefined);
@@ -18,6 +24,7 @@ export default function OrderSummary() {
   useEffect(() => {
     const addressData = sessionStorage.getItem("addressFormData");
     const paymentMethodData = sessionStorage.getItem("selectedPaymentMethod");
+    const cartItemsData = localStorage.getItem("cartItems");
 
     if (addressData) {
       setAddress(JSON.parse(addressData));
@@ -26,9 +33,13 @@ export default function OrderSummary() {
     if (paymentMethodData) {
       setPaymentMethod(JSON.parse(paymentMethodData));
     }
+    if (cartItemsData) {
+      setCartItems(JSON.parse(cartItemsData));
+    }
   }, []);
 
   function handleSubmit() {
+    createOrder(cartItems);
     router.push("/checkout/completed");
     sessionStorage.clear();
     context?.setCart([]);
