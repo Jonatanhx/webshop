@@ -45,15 +45,18 @@ export function UserDropdown({ props }: UserDropdownProps) {
             >
               Your account
             </Link>
-            <p className="no-underline hover:underline hover:underline-offset-4 self-start">
+            <Link
+              href="/profile/orders"
+              className="no-underline hover:underline hover:underline-offset-4 self-start"
+            >
               Orders
-            </p>
-            <p className="no-underline hover:underline hover:underline-offset-4 self-start">
-              Return an order
-            </p>
-            <p className="no-underline hover:underline hover:underline-offset-4 self-start">
+            </Link>
+            <Link
+              href="/help/faq"
+              className="no-underline hover:underline hover:underline-offset-4 self-start"
+            >
               Help & FAQ
-            </p>
+            </Link>
           </div>
           <div
             className={`flex w-[2.9rem] ${

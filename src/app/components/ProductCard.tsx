@@ -25,7 +25,7 @@ export default function ProductCard({ children, props }: ProductCardProps) {
   }
 
   return (
-    <li className="relative z-0 max-w-[12.5rem]">
+    <li className="relative z-0">
       <div className="flex flex-1 justify-end">
         <Icon
           onClick={() => toggleIsWishlisted()}

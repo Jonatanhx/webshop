@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-[75vh]">
       <Image
         src="/Hero.jpg"
         className="object-cover object-center"
