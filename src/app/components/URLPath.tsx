@@ -1,27 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 
 export default function URLPath() {
-  const params = usePathname()
-    .split("/")
-    .filter((param) => param.length != 0);
+  const params = useParams();
 
   return (
-    <div className="flex px-2">
-      <Link href="/" className="hover:border-b">
-        <p className="capitalize">home</p>
+    <div className="flex px-2 gap-2 capitalize">
+      <Link href="/" className="hover:underline underline-offset-4">
+        home
       </Link>
-
-      {params.map((param, index) => (
-        <div key={index} className="flex">
-          <p className="px-2">/</p>
-          <Link href={`/watches/${param}`} className="hover:border-b">
-            <p className="capitalize">{param.replace("-", " ")}</p>
-          </Link>
-        </div>
-      ))}
+      /
+      <Link href="/watches" className="hover:underline underline-offset-4">
+        watches
+      </Link>
+      /
+      <Link
+        href={`/watches/${params.category}`}
+        className="hover:underline underline-offset-4"
+      >
+        {params.category?.toString().replace("-", " ")}
+      </Link>
+      /
+      <Link
+        href={`/watches/${params.category}/${params.slug}`}
+        className="hover:underline underline-offset-4"
+      >
+        {params.slug?.toString().replace("-", " ")}
+      </Link>
     </div>
   );
 }

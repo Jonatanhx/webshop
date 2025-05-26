@@ -1,6 +1,6 @@
 import ProductDisplay from "@/app/components/ProductDisplay";
+import URLPath from "@/app/components/URLPath";
 import { serializedProduct } from "@/types";
-import Link from "next/link";
 import { prisma } from "../../../../../lib/prisma";
 
 export default async function ProductPage(props0: {
@@ -23,24 +23,7 @@ export default async function ProductPage(props0: {
   };
   return (
     <main>
-      <div className="flex px-2">
-        <Link
-          href="/"
-          className="border-b border-transparent hover:border-black"
-        >
-          <p className="capitalize">home</p>
-        </Link>
-
-        <div className="flex">
-          <p className="px-2">/</p>
-          <Link
-            href={`/${params.category}`}
-            className="border-b border-transparent hover:border-black"
-          >
-            <p className="capitalize">{params.category.replace("-", " ")}</p>
-          </Link>
-        </div>
-      </div>
+      <URLPath />
       <ProductDisplay props={serializedProduct} />
     </main>
   );
