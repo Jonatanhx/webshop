@@ -10,6 +10,9 @@ li {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
 }
 
@@ -92,19 +95,37 @@ button:hover {
 }
 
 .btn1 {
+  display: flex;
   color: white;
   background-color: black;
-  height: 3rem;
-  display: flex;
+  min-height: 3rem;
   justify-content: center;
   align-items: center;
   font-weight: 600;
+}
+
+.oauthbtn {
+  display: flex;
+  color: black;
+  background-color: white;
+  min-height: 3.5rem;
+  min-width: 20rem;
+  border: black solid 1px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  gap: 0.7rem;
 }
 
 .btn1:hover {
   cursor: pointer;
   opacity: 0.8;
   transition: 150ms;
+}
+
+.oauthbtn:hover {
+  cursor: pointer;
+  background-color: #d4d4d4;
 }
 
 .radio1 {
