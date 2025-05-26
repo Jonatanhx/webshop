@@ -18,7 +18,7 @@ export default function UserBar() {
   }
 
   return (
-    <div className="flex justify-end">
+    <div className="flex gap-1 justify-end">
       <Link href="/wishlist" className="relative">
         {wishlistItemCount > 0 && (
           <div className="absolute top-0 right-0 bg-neutral-700 rounded-3xl text-sm w-4 h-4 flex items-center justify-center">

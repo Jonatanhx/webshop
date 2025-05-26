@@ -17,15 +17,17 @@ export default async function Header() {
   return (
     <header className="flex flex-col items-center sticky top-0 z-40 bg-white">
       <div className="flex pt-1 w-full px-6 items-center">
-        <div className="flex flex-1"></div>
-        <p className="subtitle">1-2 weekday delivery on most items*</p>
+        <div className="w-[25%]" />
+        <p className="flex justify-center subtitle w-[50%]">
+          1-2 weekday delivery on most items*
+        </p>
         <SettingsBar />
       </div>
       <div className="flex items-center w-full px-6">
-        <div className="flex flex-1">
+        <div className="w-[25%]">
           <Icon icon="quill:hamburger" className="size-6" />
         </div>
-        <Link href="/">
+        <Link href="/" className="flex w-[50%] justify-center">
           <Image
             src="/Peluche1.svg"
             alt="Logo"
@@ -35,20 +37,20 @@ export default async function Header() {
             priority
           />
         </Link>
-        <div className="flex flex-1 justify-end gap-2">
+        <div className="flex justify-end w-[25%]">
           {!session ? (
             <SignInButton />
           ) : (
             <div className="flex flex-1 flex-col relative">
-              <div className="flex items-center justify-end gap-2">
+              <div className="flex items-center justify-end">
                 <SignOutButton />
                 <UserDropdown props={{ user }} />
               </div>
               <div id="user-dropdown-root" />
             </div>
           )}
+          <UserBar />
         </div>
-        <UserBar />
       </div>
       <Navbar />
       <div className="relative bg-white w-full z-10" id="nav-dropdown-root" />

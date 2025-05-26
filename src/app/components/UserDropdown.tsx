@@ -24,7 +24,7 @@ export function UserDropdown({ props }: UserDropdownProps) {
       <Link href="/profile">
         <Icon
           icon="material-symbols-light:person-outline"
-          className="size-9 mt-2"
+          className="size-9 mt-1"
         />
       </Link>
       <UserDropdownWrapper>

@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 
 export default function SettingsBar() {
   return (
-    <div className="flex flex-1 justify-end">
+    <div className="flex w-[25%] justify-end">
       <button className="flex gap-1 items-center hover:cursor-pointer">
         <p className="text-xl">🇬🇧</p> English
         <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />

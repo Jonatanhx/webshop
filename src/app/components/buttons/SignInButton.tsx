@@ -7,7 +7,7 @@ export default function SignInButton() {
   }
   return (
     <button
-      className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300"
+      className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300 mx-2"
       onClick={signInUser}
     >
       <span>Sign in</span>
