@@ -10,11 +10,19 @@ import CartTotal from "./CartTotal";
 
 export default function CartItems() {
   const cart = useContext(CartContext);
+
   function removeFromCart(itemToRemove: serializedProduct) {
     const currentCart: serializedProduct[] = JSON.parse(
       localStorage.getItem("cartItems") || "[]"
     );
-    currentCart.splice(currentCart.indexOf(itemToRemove));
+
+    const indexOfItemToRemove = currentCart.findIndex(
+      (item) => item.id === itemToRemove.id
+    );
+
+    if (indexOfItemToRemove !== -1) {
+      currentCart.splice(indexOfItemToRemove, 1);
+    }
 
     cart?.setCart(currentCart);
   }
