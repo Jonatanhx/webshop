@@ -39,7 +39,9 @@ export default async function Header() {
         </Link>
         <div className="flex justify-end w-[25%]">
           {!session ? (
-            <SignInButton />
+            <div className="flex flex-col justify-center">
+              <SignInButton />
+            </div>
           ) : (
             <div className="flex flex-1 flex-col relative">
               <div className="flex items-center justify-end">
