@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import { prisma } from "../../../../lib/prisma";
 import ProfileAside from "../ProfileAside";
 import OrderImage from "./OrderImage";
@@ -17,6 +18,10 @@ export default async function OrdersPage() {
       },
     },
   });
+
+  if (!session) {
+    redirect("/sign-in");
+  }
 
   return (
     <main className="flex px-48 py-6">
