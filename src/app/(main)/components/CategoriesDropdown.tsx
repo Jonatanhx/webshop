@@ -1,41 +1,61 @@
 "use client";
 
+import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavDropdownContext } from "../contexts/NavDropdownContext";
+import { getProductsByCategory } from "./../../../../prisma/getProductsByCategory";
 import NavDropdownWrapper from "./NavDropdownWrapper";
 
 interface CategoriesDropdownProps {
   props: {
-    id: string;
-    name: string;
+    category: {
+      name: string;
+      id: string;
+    };
+    products: serializedProduct[];
   };
 }
 
 export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
   const context = useContext(NavDropdownContext);
+  const [categoryProducts, setCategoryProducts] = useState<serializedProduct[]>(
+    []
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getProductsByCategory(props.category.name);
+
+      setCategoryProducts(data);
+    };
+
+    fetchData().catch(console.error);
+  }, []);
+
   return (
     <li
       onMouseEnter={() => {
         context?.setIsOpen(true);
-        context?.setHoveredItem(`${props.name}`);
+        context?.setHoveredItem(`${props.category.name}`);
       }}
       onMouseLeave={() => {
         context?.setIsOpen(false);
         context?.setHoveredItem("");
       }}
       className={`flex hover:cursor-pointer capitalize font-semibold px-2 py-3 ${
-        context?.hoveredItem === props.name && "underline underline-offset-4"
+        context?.hoveredItem === props.category.name &&
+        "underline underline-offset-4"
       }`}
     >
-      {props.name.replace("-", " ")}
+      {props.category.name.replace("-", " ")}
       <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
-      {context?.hoveredItem === props.name && (
+      {context?.hoveredItem === props.category.name && (
         <NavDropdownWrapper>
           <div
             onMouseEnter={() => {
               context?.setIsOpen(true);
-              context?.setHoveredItem(`${props.name}`);
+              context?.setHoveredItem(`${props.category.name}`);
             }}
             onMouseLeave={() => {
               context?.setIsOpen(false);
@@ -56,7 +76,13 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
             </div>
             <div>
               <p className="subtitle">Trending Watches</p>
-              <ul>{props.name}</ul>
+              <ul>
+                {categoryProducts.map((product) => (
+                  <li className="capitalize" key={product.id}>
+                    {product.name.replace("-", " ")}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div>
               <p className="subtitle">Popular Brands</p>

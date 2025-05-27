@@ -21,7 +21,7 @@ export default async function CategoriesPage(props0: {
 
   return (
     <main className="flex flex-col h-full px-36">
-      <section className="flex justify-end py-4 gap-4">
+      <section className="flex justify-end py-4 gap-4 self-end">
         <SortByButton />
         <FilterByBrandButton props={uniqueBrandsArray} />
       </section>

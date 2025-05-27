@@ -1,4 +1,5 @@
-import { serializedProduct, SortOrder } from "@/types";
+import { SortOrder } from "@/types";
+import { serializeProducts } from "@/utils/helperFunctions";
 import Link from "next/link";
 import { prisma } from "../../../../../lib/prisma";
 import CarouselImage from "../../components/CarouselImage";
@@ -24,39 +25,30 @@ export default async function CategoryProducts({
   if (props.searchParams.select === "isTrending") {
     order = true;
   }
-  const mensWatches = await prisma.product.findMany({
-    where: {
-      productCategory: {
-        some: {
-          category: {
-            name: props.params.category,
+  const mensWatches = serializeProducts(
+    await prisma.product.findMany({
+      where: {
+        productCategory: {
+          some: {
+            category: {
+              name: props.params.category,
+            },
           },
         },
+        isTrending: order,
+        brand: props.searchParams.brand,
       },
-      isTrending: order,
-      brand: props.searchParams.brand,
-    },
-    orderBy: {
-      price: props.searchParams?.dir,
-    },
-  });
-
-  const serializedProducts: serializedProduct[] = mensWatches.map(
-    (product) => ({
-      name: product.name,
-      id: product.id,
-      brand: product.brand,
-      isFeatured: product.isFeatured,
-      isTrending: product.isTrending,
-      images: product.images,
-      price: Number(product.price),
+      orderBy: {
+        price: props.searchParams?.dir,
+      },
     })
   );
+
   return (
     <section className="flex justify-center flex-1">
-      {serializedProducts.length > 0 ? (
+      {mensWatches.length > 0 ? (
         <ul className="grid grid-cols-6">
-          {serializedProducts.map((product) => (
+          {mensWatches.map((product) => (
             <ProductCard key={product.id} props={product}>
               <Link href={`/watches/${props.params.category}/${product.name}`}>
                 <CarouselImage props={product} />

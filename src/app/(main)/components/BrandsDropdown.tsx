@@ -3,6 +3,7 @@
 import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useContext } from "react";
 import { NavDropdownContext } from "../contexts/NavDropdownContext";
 import NavDropdownWrapper from "./NavDropdownWrapper";
@@ -13,6 +14,7 @@ interface BrandsDropdownProps {
 
 export default function BrandsDropdown({ props }: BrandsDropdownProps) {
   const context = useContext(NavDropdownContext);
+  const params = useParams();
   const trending = props.filter((product) => product.isTrending === true);
   const uniqueBrands: string[] = [];
   props.forEach((product) => {
@@ -66,7 +68,7 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
               <p className="subtitle">Trending Watches</p>
               {trending.map((product) => (
                 <Link
-                  href={`/watches/mens-watches/${product.name}`}
+                  href={`/watches/${params.category}/${product.name}`}
                   className="capitalize no-underline hover:underline underline-offset-4 hover:cursor-pointer"
                   key={product.id}
                 >
@@ -74,18 +76,17 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
                 </Link>
               ))}
             </div>
-            <div>
+            <div className="flex flex-col">
               <p className="subtitle">Popular Brands</p>
-              <ul>
-                {uniqueBrands.map((product, index) => (
-                  <li
-                    key={index}
-                    className="capitalize hover:cursor-pointer no-underline hover:underline underline-offset-4"
-                  >
-                    {product}
-                  </li>
-                ))}
-              </ul>
+              {uniqueBrands.map((brand, index) => (
+                <Link
+                  href={`/watches/${params.category}/?brand=${brand}`}
+                  key={index}
+                  className="capitalize hover:cursor-pointer no-underline hover:underline underline-offset-4"
+                >
+                  {brand}
+                </Link>
+              ))}
             </div>
             <div className="flex flex-1" />
           </div>

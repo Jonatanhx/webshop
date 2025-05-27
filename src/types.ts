@@ -1,3 +1,15 @@
+import { Decimal } from "@prisma/client/runtime/binary";
+
+export type product = {
+  name: string;
+  id: string;
+  brand: string;
+  isFeatured: boolean;
+  isTrending: boolean;
+  images: string[];
+  price: Decimal;
+};
+
 export type serializedProduct = {
   name: string;
   id: string;
