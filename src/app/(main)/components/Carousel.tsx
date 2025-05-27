@@ -1,6 +1,7 @@
 import { serializedProduct } from "@/types";
 import Link from "next/link";
-import { prisma } from "../../../lib/prisma";
+
+import { prisma } from "../../../../lib/prisma";
 import CarouselImages from "./CarouselImage";
 import ProductCard from "./ProductCard";
 

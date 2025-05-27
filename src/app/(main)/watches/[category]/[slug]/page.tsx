@@ -1,7 +1,7 @@
-import ProductDisplay from "@/app/components/ProductDisplay";
-import URLPath from "@/app/components/URLPath";
+import ProductDisplay from "@/app/(main)/components/ProductDisplay";
+import URLPath from "@/app/(main)/components/URLPath";
 import { serializedProduct } from "@/types";
-import { prisma } from "../../../../../lib/prisma";
+import { prisma } from "../../../../../../lib/prisma";
 
 export default async function ProductPage(props0: {
   params: Promise<{ category: string; slug: string }>;

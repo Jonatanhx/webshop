@@ -2,7 +2,6 @@ import { auth } from "@/auth";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
-import SignInButton from "./buttons/SignInButton";
 import SignOutButton from "./buttons/SignOutButton";
 import Navbar from "./Navbar";
 import SettingsBar from "./SettingsBar";
@@ -40,7 +39,12 @@ export default async function Header() {
         <div className="flex justify-end w-[25%]">
           {!session ? (
             <div className="flex flex-col justify-center">
-              <SignInButton />
+              <Link
+                className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300 mx-2"
+                href="/sign-in"
+              >
+                Sign in
+              </Link>
             </div>
           ) : (
             <div className="flex flex-1 flex-col relative">

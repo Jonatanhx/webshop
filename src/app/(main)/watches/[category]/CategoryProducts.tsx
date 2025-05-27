@@ -1,8 +1,9 @@
-import CarouselImages from "@/app/components/CarouselImage";
-import ProductCard from "@/app/components/ProductCard";
 import { serializedProduct, SortOrder } from "@/types";
 import Link from "next/link";
-import { prisma } from "../../../../lib/prisma";
+import { prisma } from "../../../../../lib/prisma";
+import CarouselImage from "../../components/CarouselImage";
+import ProductCard from "../../components/ProductCard";
+
 interface CategoryProductsProps {
   props: {
     params: {
@@ -58,7 +59,7 @@ export default async function CategoryProducts({
           {serializedProducts.map((product) => (
             <ProductCard key={product.id} props={product}>
               <Link href={`/watches/${props.params.category}/${product.name}`}>
-                <CarouselImages props={product} />
+                <CarouselImage props={product} />
               </Link>
             </ProductCard>
           ))}

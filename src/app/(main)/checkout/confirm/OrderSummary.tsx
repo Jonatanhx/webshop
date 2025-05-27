@@ -1,5 +1,5 @@
 "use client";
-import { CartContext } from "@/app/contexts/CartContext";
+
 import {
   AddressInputs,
   selectedPaymentMethod,
@@ -9,7 +9,8 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { CldImage } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
-import { createOrder } from "../../../../prisma/createOrder";
+import { createOrder } from "../../../../../prisma/createOrder";
+import { CartContext } from "../../contexts/CartContext";
 
 export default function OrderSummary() {
   const shippingFee = 25;
