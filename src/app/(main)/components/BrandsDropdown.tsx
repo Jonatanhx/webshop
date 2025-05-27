@@ -56,16 +56,18 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
             }`}
           >
             <div className="flex flex-1" />
-            <div>
-              <p className="subtitle">Discover</p>
-              <ul>
-                <li className="capitalize no-underline hover:underline underline-offset-4">
-                  View all
-                </li>
-              </ul>
+            <div className="flex flex-col">
+              <span className="subtitle">Discover</span>
+
+              <Link
+                href="/watches"
+                className="capitalize no-underline hover:underline underline-offset-4"
+              >
+                View all
+              </Link>
             </div>
             <div className="flex flex-col">
-              <p className="subtitle">Trending Watches</p>
+              <span className="subtitle">Trending Watches</span>
               {trending.map((product) => (
                 <Link
                   href={`/watches/${params.category}/${product.name}`}
@@ -77,7 +79,7 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
               ))}
             </div>
             <div className="flex flex-col">
-              <p className="subtitle">Popular Brands</p>
+              <span className="subtitle">Popular Brands</span>
               {uniqueBrands.map((brand, index) => (
                 <Link
                   href={`/watches/${params.category}/?brand=${brand}`}

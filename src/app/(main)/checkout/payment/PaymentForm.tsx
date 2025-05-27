@@ -17,14 +17,12 @@ export default function PaymentForm() {
     const previousInput = sessionStorage.getItem("selectedPaymentMethod");
     if (previousInput) {
       const parsedData = JSON.parse(previousInput);
-      console.log(parsedData);
       setSelectedMethod(parsedData);
       setValue("selectedMethod", parsedData.selectedMethod);
     }
   }, []);
 
   const onSubmit: SubmitHandler<selectedPaymentMethod> = (data) => {
-    console.log(data);
     sessionStorage.setItem("selectedPaymentMethod", JSON.stringify(data));
     router.push("/checkout/confirm");
   };

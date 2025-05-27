@@ -57,7 +57,7 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
           <p className="text-lg">${props.price}.00</p>
         </div>
         <div className="flex flex-col gap-2">
-          <button onClick={() => addToCart()} className="btn1 w-[70%]">
+          <button onClick={() => addToCart()} className="btn1">
             <p className="text-white">Add to bag</p>
           </button>
           <p className="subtitle">All images licensed under CC BY-NC 4.0</p>

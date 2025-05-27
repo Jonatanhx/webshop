@@ -9,7 +9,7 @@ export default function AddressForm() {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [address1, setAddress1] = useState<string>("");
-  const [address2, setAddress2] = useState<string | undefined>(undefined);
+  const [address2, setAddress2] = useState<string>("");
   const [postalCode, setPostalCode] = useState<string>("");
   const [city, setCity] = useState<string>("");
   const [country, setCountry] = useState<string>("");
@@ -28,7 +28,7 @@ export default function AddressForm() {
       setFirstName(parsedInputs.firstName);
       setLastName(parsedInputs.lastName);
       setAddress1(parsedInputs.address1);
-      setAddress2(parsedInputs.address2);
+      setAddress2(parsedInputs.address2 || "");
       setPostalCode(parsedInputs.postalCode);
       setCity(parsedInputs.city);
       setContactDetails(parsedInputs.contactDetails);
@@ -52,7 +52,6 @@ export default function AddressForm() {
   const onSubmit: SubmitHandler<AddressInputs> = (data) => {
     const jsonData = JSON.stringify(data);
     sessionStorage.setItem("addressFormData", jsonData);
-    console.log(data);
     router.push("/checkout/payment");
   };
 

@@ -66,16 +66,18 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
             }`}
           >
             <div className="flex flex-1" />
-            <div>
-              <p className="subtitle">Discover</p>
-              <ul>
-                <li className="capitalize hover:cursor-pointer border-b border-transparent hover:border-black">
-                  View all
-                </li>
-              </ul>
+            <div className="flex flex-col">
+              <span className="subtitle">Discover</span>
+
+              <Link
+                href="/watches"
+                className="capitalize hover:cursor-pointer border-b border-transparent hover:border-black"
+              >
+                View all
+              </Link>
             </div>
             <div className="flex flex-col">
-              <p className="subtitle">Trending Watches</p>
+              <span className="subtitle">Trending Watches</span>
 
               {categoryProducts.map((product) => (
                 <Link
@@ -88,7 +90,7 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
               ))}
             </div>
             <div>
-              <p className="subtitle">Popular Brands</p>
+              <span className="subtitle">Popular Brands</span>
               <ul></ul>
             </div>
             <div className="flex flex-1" />
