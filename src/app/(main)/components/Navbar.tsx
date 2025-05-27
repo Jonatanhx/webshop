@@ -7,6 +7,12 @@ import CategoriesDropdown from "./CategoriesDropdown";
 export default async function Navbar() {
   const categories = await prisma.category.findMany();
   const products = await prisma.product.findMany();
+  const uniqueBrands = await prisma.product.findMany({
+    where: {},
+    distinct: ["brand"],
+    select: { brand: true },
+  });
+  const uniqueBrandsArray = uniqueBrands.map((obj) => obj.brand);
   const serializedProducts = serializeProducts(products);
 
   return (
@@ -16,7 +22,11 @@ export default async function Navbar() {
         {categories.map((category) => (
           <Link href={`/watches/${category.name}`} key={category.id}>
             <CategoriesDropdown
-              props={{ category, products: serializedProducts }}
+              props={{
+                category,
+                uniqueBrandsArray,
+                products: serializedProducts,
+              }}
             />
           </Link>
         ))}

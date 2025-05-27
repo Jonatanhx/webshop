@@ -24,7 +24,7 @@ export default async function OrdersPage() {
   }
 
   return (
-    <main id="orders-main" className="px-48 py-6">
+    <main id="profile-main" className="px-48 py-6">
       <ProfileAside />
       <section className="flex flex-col px-32">
         <h1 className="heading self-start">Orders</h1>

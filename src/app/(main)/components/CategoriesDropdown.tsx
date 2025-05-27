@@ -14,6 +14,7 @@ interface CategoriesDropdownProps {
       name: string;
       id: string;
     };
+    uniqueBrandsArray: string[];
     products: serializedProduct[];
   };
 }
@@ -89,9 +90,14 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
                 </Link>
               ))}
             </div>
-            <div>
+            <div className="flex flex-col">
               <span className="subtitle">Popular Brands</span>
-              <ul></ul>
+
+              {props.uniqueBrandsArray.map((brand, index) => (
+                <Link href={`/watches`} key={index} className="capitalize">
+                  {brand}
+                </Link>
+              ))}
             </div>
             <div className="flex flex-1" />
           </div>

@@ -9,11 +9,11 @@ export default async function ProfilePage() {
   }
 
   return (
-    <main className="flex justify-center px-48">
+    <main id="profile-main" className="px-48 py-6">
       <ProfileAside />
-      <section className="flex flex-1 flex-col p-20">
+      <section className="flex h-screen w-full flex-col self-start px-20">
         <h1 className="heading">My profile</h1>
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-8 p-[10rem]">
           <span className="text-neutral-700 text-lg">
             You&apos;re all caught up 🎉
           </span>

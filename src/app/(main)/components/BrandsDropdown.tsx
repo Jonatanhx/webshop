@@ -17,6 +17,7 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
   const params = useParams();
   const trending = props.filter((product) => product.isTrending === true);
   const uniqueBrands: string[] = [];
+
   props.forEach((product) => {
     if (!uniqueBrands.includes(product.brand)) {
       uniqueBrands.push(product.brand);
