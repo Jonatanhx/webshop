@@ -2,6 +2,7 @@
 
 import { serializedProduct } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { NavDropdownContext } from "../contexts/NavDropdownContext";
 import { getProductsByCategory } from "./../../../../prisma/getProductsByCategory";
@@ -26,7 +27,6 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getProductsByCategory(props.category.name);
-
       setCategoryProducts(data);
     };
 
@@ -74,15 +74,18 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="flex flex-col">
               <p className="subtitle">Trending Watches</p>
-              <ul>
-                {categoryProducts.map((product) => (
-                  <li className="capitalize" key={product.id}>
-                    {product.name.replace("-", " ")}
-                  </li>
-                ))}
-              </ul>
+
+              {categoryProducts.map((product) => (
+                <Link
+                  href={`/watches/${props.category.name}/${product.name}`}
+                  className="capitalize hover:underline underline-offset-4"
+                  key={product.id}
+                >
+                  {product.name.replace("-", " ")}
+                </Link>
+              ))}
             </div>
             <div>
               <p className="subtitle">Popular Brands</p>
