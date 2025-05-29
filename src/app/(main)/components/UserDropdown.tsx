@@ -38,22 +38,22 @@ export function UserDropdown({ props }: UserDropdownProps) {
               isOpen ? "border-2  border-r-0" : ""
             }`}
           >
-            <p className="border-b">{props.user?.name}</p>
+            <span className="border-b text-nowrap">{props.user?.name}</span>
             <Link
               href="/profile"
-              className="no-underline hover:underline hover:underline-offset-4 self-start"
+              className="no-underline hover:underline hover:underline-offset-4 self-start text-nowrap"
             >
               Your account
             </Link>
             <Link
               href="/profile/orders"
-              className="no-underline hover:underline hover:underline-offset-4 self-start"
+              className="no-underline hover:underline hover:underline-offset-4 self-start text-nowrap"
             >
               Orders
             </Link>
             <Link
               href="/help/faq"
-              className="no-underline hover:underline hover:underline-offset-4 self-start"
+              className="no-underline hover:underline hover:underline-offset-4 self-start text-nowrap"
             >
               Help & FAQ
             </Link>

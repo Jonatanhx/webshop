@@ -26,75 +26,77 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
     }
   });
   return (
-    <li
-      className={`relative flex justify-center hover:cursor-pointer font-semibold px-2 py-3 ${
-        context?.hoveredItem === "brands" && "underline underline-offset-4"
-      }`}
-      onMouseOver={() => {
-        context?.setIsOpen(true);
-        context?.setHoveredItem("brands");
-      }}
-      onMouseLeave={() => {
-        context?.setIsOpen(false);
-        context?.setHoveredItem("");
-      }}
-    >
-      Brands
-      <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
-      {context?.hoveredItem === "brands" && (
-        <NavDropdownWrapper>
-          <div
-            onMouseOver={() => {
-              context?.setIsOpen(true);
-              context?.setHoveredItem("brands");
-            }}
-            onMouseLeave={() => {
-              context?.setIsOpen(false);
-              context?.setHoveredItem("");
-            }}
-            className={`flex absolute duration-300 bg-white w-full gap-32 overflow-hidden ${
-              context?.isOpen ? "h-[15rem] border-b-2 py-4 " : "h-0"
-            }`}
-          >
-            <div className="flex flex-1" />
-            <div className="flex flex-col">
-              <span className="subtitle">Discover</span>
+    <Link href="/watches">
+      <li
+        className={`relative flex justify-center hover:cursor-pointer font-semibold px-2 py-3 ${
+          context?.hoveredItem === "brands" && "underline underline-offset-4"
+        }`}
+        onMouseOver={() => {
+          context?.setIsOpen(true);
+          context?.setHoveredItem("brands");
+        }}
+        onMouseLeave={() => {
+          context?.setIsOpen(false);
+          context?.setHoveredItem("");
+        }}
+      >
+        Brands
+        <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
+        {context?.hoveredItem === "brands" && (
+          <NavDropdownWrapper>
+            <div
+              onMouseOver={() => {
+                context?.setIsOpen(true);
+                context?.setHoveredItem("brands");
+              }}
+              onMouseLeave={() => {
+                context?.setIsOpen(false);
+                context?.setHoveredItem("");
+              }}
+              className={`flex absolute duration-300 bg-white w-full gap-32 overflow-hidden ${
+                context?.isOpen ? "h-[15rem] border-b-2 py-4 " : "h-0"
+              }`}
+            >
+              <div className="flex flex-1" />
+              <div className="flex flex-col">
+                <span className="subtitle">Discover</span>
 
-              <Link
-                href="/watches"
-                className="capitalize no-underline hover:underline underline-offset-4"
-              >
-                View all
-              </Link>
-            </div>
-            <div className="flex flex-col">
-              <span className="subtitle">Trending Watches</span>
-              {trending.map((product) => (
                 <Link
-                  href={`/watches/${params.category}/${product.name}`}
-                  className="capitalize no-underline hover:underline underline-offset-4 hover:cursor-pointer"
-                  key={product.id}
+                  href="/watches"
+                  className="capitalize no-underline hover:underline underline-offset-4"
                 >
-                  {product.name.replace("-", " ")}
+                  View all
                 </Link>
-              ))}
+              </div>
+              <div className="flex flex-col">
+                <span className="subtitle">Trending Watches</span>
+                {trending.map((product) => (
+                  <Link
+                    href={`/watches/${params.category}/${product.name}`}
+                    className="capitalize no-underline hover:underline underline-offset-4 hover:cursor-pointer"
+                    key={product.id}
+                  >
+                    {product.name.replace("-", " ")}
+                  </Link>
+                ))}
+              </div>
+              <div className="flex flex-col">
+                <span className="subtitle">Popular Brands</span>
+                {uniqueBrands.map((brand, index) => (
+                  <Link
+                    href={`/watches/${params.category}/?brand=${brand}`}
+                    key={index}
+                    className="capitalize hover:cursor-pointer no-underline hover:underline underline-offset-4"
+                  >
+                    {brand}
+                  </Link>
+                ))}
+              </div>
+              <div className="flex flex-1" />
             </div>
-            <div className="flex flex-col">
-              <span className="subtitle">Popular Brands</span>
-              {uniqueBrands.map((brand, index) => (
-                <Link
-                  href={`/watches/${params.category}/?brand=${brand}`}
-                  key={index}
-                  className="capitalize hover:cursor-pointer no-underline hover:underline underline-offset-4"
-                >
-                  {brand}
-                </Link>
-              ))}
-            </div>
-            <div className="flex flex-1" />
-          </div>
-        </NavDropdownWrapper>
-      )}
-    </li>
+          </NavDropdownWrapper>
+        )}
+      </li>
+    </Link>
   );
 }

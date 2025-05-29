@@ -50,7 +50,11 @@ export default async function CategoryProducts({
         <ul className="grid grid-cols-6">
           {mensWatches.map((product) => (
             <ProductCard key={product.id} props={product}>
-              <Link href={`/watches/${props.params.category}/${product.name}`}>
+              <Link
+                href={`/watches/${props.params.category || "brands"}/${
+                  product.name
+                }`}
+              >
                 <CarouselImage props={product} />
               </Link>
             </ProductCard>

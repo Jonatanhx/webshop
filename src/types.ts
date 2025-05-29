@@ -31,6 +31,12 @@ export type AddressInputs = {
   contactDetails: ContactDetails;
 };
 
+export type RegisterInputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+};
+
 export type ContactDetails = {
   email: string;
   phoneNumber: string;

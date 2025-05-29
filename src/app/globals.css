@@ -104,6 +104,28 @@ button:hover {
   font-weight: 600;
 }
 
+.btn1:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 150ms;
+}
+
+.btn2 {
+  display: flex;
+  color: white;
+  background-color: #635047;
+  min-height: 3rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.btn2:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 150ms;
+}
+
 .oauthbtn {
   display: flex;
   color: black;
@@ -115,12 +137,6 @@ button:hover {
   align-items: center;
   font-weight: 600;
   gap: 0.7rem;
-}
-
-.btn1:hover {
-  cursor: pointer;
-  opacity: 0.8;
-  transition: 150ms;
 }
 
 .oauthbtn:hover {

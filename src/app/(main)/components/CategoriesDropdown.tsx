@@ -94,7 +94,11 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
               <span className="subtitle">Popular Brands</span>
 
               {props.uniqueBrandsArray.map((brand, index) => (
-                <Link href={`/watches`} key={index} className="capitalize">
+                <Link
+                  href={`/watches`}
+                  key={index}
+                  className="capitalize hover:underline underline-offset-4"
+                >
                   {brand}
                 </Link>
               ))}
