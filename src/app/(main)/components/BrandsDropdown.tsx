@@ -15,7 +15,6 @@ interface BrandsDropdownProps {
 export default function BrandsDropdown({ props }: BrandsDropdownProps) {
   const context = useContext(NavDropdownContext);
   const params = useParams();
-  const trending = props.filter((product) => product.isTrending === true);
   const uniqueBrands: string[] = [];
 
   props.forEach((product) => {
@@ -67,18 +66,6 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
                 >
                   View all
                 </Link>
-              </div>
-              <div className="flex flex-col">
-                <span className="subtitle">Trending Watches</span>
-                {trending.map((product) => (
-                  <Link
-                    href={`/watches/${params.category}/${product.name}`}
-                    className="capitalize no-underline hover:underline underline-offset-4 hover:cursor-pointer"
-                    key={product.id}
-                  >
-                    {product.name.replace("-", " ")}
-                  </Link>
-                ))}
               </div>
               <div className="flex flex-col">
                 <span className="subtitle">Popular Brands</span>
