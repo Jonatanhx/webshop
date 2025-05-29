@@ -2,22 +2,24 @@
 
 import { selectedPaymentMethod } from "@/types";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 
 export default function PaymentForm() {
-  const [selectedMethod, setSelectedMethod] = useState<selectedPaymentMethod>({
-    selectedMethod: "",
-  });
   const router = useRouter();
 
-  const { register, handleSubmit, setValue } = useForm<selectedPaymentMethod>();
+  const { register, handleSubmit, setValue, control } =
+    useForm<selectedPaymentMethod>();
+
+  const selectedMethod = useWatch({
+    control,
+    name: "selectedMethod",
+  });
 
   useEffect(() => {
     const previousInput = sessionStorage.getItem("selectedPaymentMethod");
     if (previousInput) {
       const parsedData = JSON.parse(previousInput);
-      setSelectedMethod(parsedData);
       setValue("selectedMethod", parsedData.selectedMethod);
     }
   }, []);
@@ -38,18 +40,11 @@ export default function PaymentForm() {
             value="Swish"
             className="radio1"
             type="radio"
-            {...register("selectedMethod", {
-              onChange: (e) => {
-                setSelectedMethod({
-                  ...selectedMethod,
-                  selectedMethod: e.target.value,
-                });
-              },
-            })}
+            {...register("selectedMethod", {})}
           />
           Swish
         </label>
-        {selectedMethod.selectedMethod === "Swish" && (
+        {selectedMethod === "Swish" && (
           <div className="border-t p-4">
             You will be forwarded to the Swish app to complete your payment.
           </div>
@@ -61,18 +56,11 @@ export default function PaymentForm() {
             value="CreditCard"
             className="radio1"
             type="radio"
-            {...register("selectedMethod", {
-              onChange: (e) => {
-                setSelectedMethod({
-                  ...selectedMethod,
-                  selectedMethod: e.target.value,
-                });
-              },
-            })}
+            {...register("selectedMethod", {})}
           />
           Credit / Debit Card
         </label>
-        {selectedMethod.selectedMethod === "CreditCard" && (
+        {selectedMethod === "CreditCard" && (
           <div className="flex flex-col gap-4 p-4 border-t">
             <input placeholder="Card number" className="input-field1 w-full" />
             <div className="flex gap-2">
@@ -92,21 +80,14 @@ export default function PaymentForm() {
       <div className="border rounded-xl">
         <label className="flex items-center gap-4 p-4 text-lg">
           <input
-            value={"PayPal"}
+            value="PayPal"
             className="radio1"
             type="radio"
-            {...register("selectedMethod", {
-              onChange: (e) => {
-                setSelectedMethod({
-                  ...selectedMethod,
-                  selectedMethod: e.target.value,
-                });
-              },
-            })}
+            {...register("selectedMethod", {})}
           />
           PayPal
         </label>
-        {selectedMethod.selectedMethod === "PayPal" && (
+        {selectedMethod === "PayPal" && (
           <div className="border-t p-4">
             You will be forwarded to the PayPal app to complete your payment.
           </div>
