@@ -29,7 +29,7 @@ export function UserDropdown({ props }: UserDropdownProps) {
       </Link>
       <UserDropdownWrapper>
         <div
-          className={` absolute right-0 w-[50%] bg-white flex flex-row overflow-hidden ${
+          className={` absolute right-0 w-[15rem] bg-white flex flex-row overflow-hidden ${
             isOpen ? "h-[12rem]" : "h-0"
           } `}
         >
@@ -38,7 +38,9 @@ export function UserDropdown({ props }: UserDropdownProps) {
               isOpen ? "border-2  border-r-0" : ""
             }`}
           >
-            <span className="border-b text-nowrap">{props.user?.name}</span>
+            <span className="text-nowrap underline underline-offset-8">
+              {props.user?.name}
+            </span>
             <Link
               href="/profile"
               className="no-underline hover:underline hover:underline-offset-4 self-start text-nowrap"
