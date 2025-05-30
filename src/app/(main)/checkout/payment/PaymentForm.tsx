@@ -8,8 +8,13 @@ import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 export default function PaymentForm() {
   const router = useRouter();
 
-  const { register, handleSubmit, setValue, control } =
-    useForm<selectedPaymentMethod>();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm<selectedPaymentMethod>();
 
   const selectedMethod = useWatch({
     control,
@@ -40,7 +45,7 @@ export default function PaymentForm() {
             value="Swish"
             className="radio1"
             type="radio"
-            {...register("selectedMethod", {})}
+            {...register("selectedMethod", { required: true })}
           />
           Swish
         </label>
@@ -93,6 +98,9 @@ export default function PaymentForm() {
           </div>
         )}
       </div>
+      {errors.selectedMethod && (
+        <span className="text-red-500">Select a payment method</span>
+      )}
       <button className="btn1 w-[33%] absolute bottom-0 right-0" type="submit">
         Next
       </button>

@@ -13,5 +13,6 @@ export async function signInCredentialsUser(data: { email: string }) {
   await signIn("credentials", {
     email: data.email,
     name: user?.name,
+    id: user?.id,
   });
 }

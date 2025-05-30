@@ -50,6 +50,9 @@ export default function CartTotal({ total }: CartTotalProps) {
             <li>
               <Icon icon="logos:visa" className="size-11" />
             </li>
+            <li>
+              <Icon icon="logos:paypal" className="size-8" />
+            </li>
             <li className="relative">
               <Image
                 alt="swish icon"

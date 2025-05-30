@@ -7,6 +7,7 @@ import {
 } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { createOrder } from "../../../../../prisma/createOrder";
@@ -47,16 +48,16 @@ export default function OrderSummary() {
   }
 
   return (
-    <div className="flex flex-1 w-full">
-      <section className="flex flex-1 flex-col p-4 gap-6">
-        <div className="flex flex-col gap-2">
+    <div className="flex flex-1 w-full justify-around">
+      <section className="flex flex-col p-4 gap-6">
+        <div className="flex flex-col gap-2 self-start">
           <span className="text-lg font-semibold">Order</span>
           <span>Parcel shipped by Peluche</span>
           <span>Parcel delivered by UPS</span>
           {context?.cart.map((cartItem) => (
             <div
               key={cartItem.id}
-              className="flex flex-col border-b bg-neutral-100 border-neutral-500 pb-4 w-[50%]"
+              className="flex flex-col border-b bg-neutral-100 border-neutral-500 pb-4"
             >
               <div className="flex justify-end"></div>
               <div className="flex">
@@ -81,7 +82,7 @@ export default function OrderSummary() {
         </div>
       </section>
 
-      <aside className="flex flex-1 flex-col gap-5 p-4 bg-neutral-100 relative">
+      <aside className="flex flex-col gap-5 p-4 bg-neutral-100 relative">
         {address && (
           <div className="flex flex-col gap-5">
             <div className="flex flex-col">
@@ -108,16 +109,29 @@ export default function OrderSummary() {
           </div>
         )}
         {paymentMethod && (
-          <div className="flex flex-col">
+          <div className="flex flex-col self-start gap-2">
             <span className="text-lg font-semibold">Payment method</span>
-            <Icon icon="logos:mastercard" className="size-8" />
+            {paymentMethod.selectedMethod === "CreditCard" && (
+              <Icon icon="logos:mastercard" className="size-8" />
+            )}
+            {paymentMethod.selectedMethod === "Swish" && (
+              <Image
+                alt="swish icon"
+                src="/swishIcon.svg"
+                width={20}
+                height={20}
+              />
+            )}
+            {paymentMethod.selectedMethod === "PayPal" && (
+              <Icon icon="logos:paypal" className="size-7" />
+            )}
           </div>
         )}
         <input
-          className="border p-3 rounded-xl bg-white max-w-[33%]"
+          className="border p-3 rounded-xl bg-white min-w-[12rem]"
           placeholder="Discount code or gift card"
         />
-        <div className="flex flex-col max-w-[33%]">
+        <div className="flex flex-col">
           <div className="flex flex-col border-b py-4">
             <span className="text-md">Subtotal: ${context?.total}.00</span>
             <span className="text-md">Delivery: ${shippingFee}.00</span>
@@ -131,7 +145,7 @@ export default function OrderSummary() {
             Including $13.00 in taxes
           </span>
         </div>
-        <button onClick={handleSubmit} className="btn1 w-[33%]">
+        <button onClick={handleSubmit} className="btn1">
           Confirm
         </button>
       </aside>

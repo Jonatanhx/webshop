@@ -14,12 +14,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       credentials: {
         email: { label: "email" },
         name: { label: "name" },
+        id: { label: "id" },
       },
       async authorize(credentials) {
         if (!credentials?.email) return null;
         return {
           email: String(credentials.email),
           name: String(credentials?.name),
+          id: String(credentials?.id),
         };
       },
     }),
