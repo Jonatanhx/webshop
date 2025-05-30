@@ -22,9 +22,11 @@ export default async function CategoryProducts({
   props,
 }: CategoryProductsProps) {
   let order: boolean | undefined = undefined;
+
   if (props.searchParams.select === "isTrending") {
     order = true;
   }
+
   const mensWatches = serializeProducts(
     await prisma.product.findMany({
       where: {

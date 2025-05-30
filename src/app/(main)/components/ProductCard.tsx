@@ -11,6 +11,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ children, props }: ProductCardProps) {
   const wishlist = useContext(WishlistContext);
+
   function toggleIsWishlisted() {
     const currentWishlist: serializedProduct[] = JSON.parse(
       localStorage.getItem("wishlistItems") || "[]"
