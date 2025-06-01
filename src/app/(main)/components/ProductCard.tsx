@@ -26,7 +26,7 @@ export default function ProductCard({ children, props }: ProductCardProps) {
   }
 
   return (
-    <li className="relative z-0">
+    <div className="flex flex-col flex-shrink-0">
       <div className="flex flex-1 justify-end">
         <Icon
           onClick={() => toggleIsWishlisted()}
@@ -44,6 +44,6 @@ export default function ProductCard({ children, props }: ProductCardProps) {
       <h2 className="title uppercase pt-4 pb-2">{props.brand}</h2>
       <p className="subtitle capitalize">{props.name.replace("-", " ")}</p>
       <p>${props.price}.00</p>
-    </li>
+    </div>
   );
 }

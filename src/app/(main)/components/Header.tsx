@@ -15,7 +15,7 @@ export default async function Header() {
 
   return (
     <header className="flex flex-col items-center sticky top-0 z-40 bg-white">
-      <div className="flex pt-1 w-full px-6 items-center">
+      <div className="w-full sm:px-6 sm:pt-1 items-center hidden md:flex">
         <div className="w-[25%]" />
         <p className="flex justify-center subtitle w-[50%]">
           1-2 weekday delivery on most items*
@@ -26,13 +26,12 @@ export default async function Header() {
         <div className="w-[25%]">
           <Icon icon="quill:hamburger" className="size-6" />
         </div>
-        <Link href="/" className="flex w-[50%] justify-center">
+        <Link href="/" className="flex w-[50%] justify-center pt-1 pb-2">
           <Image
             src="/Peluche1.svg"
             alt="Logo"
             width={200}
             height={300}
-            className="pb-2"
             priority
           />
         </Link>
@@ -40,7 +39,7 @@ export default async function Header() {
           {!session ? (
             <div className="flex flex-col justify-center">
               <Link
-                className="text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300 mx-2"
+                className="invisible md:visible text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300 mx-2"
                 href="/sign-in"
               >
                 Sign in
