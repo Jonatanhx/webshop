@@ -23,9 +23,8 @@ export default async function Header() {
         <SettingsBar />
       </div>
       <div className="flex items-center w-full px-6">
-        <div className="w-[25%]">
-          <Icon icon="quill:hamburger" className="size-6" />
-        </div>
+        <div className="w-[25%]" />
+
         <Link href="/" className="flex w-[50%] justify-center pt-1 pb-2">
           <Image
             src="/Peluche1.svg"
@@ -36,10 +35,11 @@ export default async function Header() {
           />
         </Link>
         <div className="flex justify-end w-[25%]">
+          <Icon icon="quill:hamburger" className="size-6 flex md:hidden" />
           {!session ? (
             <div className="flex flex-col justify-center">
               <Link
-                className="invisible md:visible text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300 mx-2"
+                className="hidden md:flex text-white bg-neutral-600 hover:bg-neutral-600/70 px-4 py-1 hover:cursor-pointer rounded-xl duration-300 mx-2"
                 href="/sign-in"
               >
                 Sign in

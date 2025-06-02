@@ -4,7 +4,7 @@ import Link from "next/link";
 export default async function Footer() {
   return (
     <footer className="flex flex-col border-t min-h-[20rem] justify-between items-center pb-4">
-      <section className="flex justify-around items-center min-h-[12rem] w-[50%] px-24">
+      <section className="flex justify-around items-center min-h-[12rem] w-full md:w-[50%]">
         <div className="h-[8rem]">
           <p className="font-semibold">Help</p>
           <ul>

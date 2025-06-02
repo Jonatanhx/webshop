@@ -27,7 +27,7 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
   return (
     <Link href="/watches">
       <li
-        className={`relative flex justify-center hover:cursor-pointer font-semibold px-2 py-3 ${
+        className={`relative flex justify-center hover:cursor-pointer font-semibold text-sm md:text-lg px-2 py-3 ${
           context?.hoveredItem === "brands" && "underline underline-offset-4"
         }`}
         onMouseOver={() => {
@@ -40,7 +40,7 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
         }}
       >
         Brands
-        <Icon icon="mdi-light:chevron-down" className="size-6 pt-1" />
+        <Icon icon="mdi:chevron-down" className="size-6 mt-1 hidden md:flex" />
         {context?.hoveredItem === "brands" && (
           <NavDropdownWrapper>
             <div
