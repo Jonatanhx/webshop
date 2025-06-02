@@ -32,25 +32,24 @@ export default function CartItems() {
       {cart?.cart.length != 0 ? (
         <div className="flex flex-1 flex-col">
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl font-bold p-6 border-b border-neutral-400 mb-12">
+            <h1 className="text-3xl font-bold pb-4 border-b border-neutral-400 mb-12">
               Your bag({cart?.cart.length})
             </h1>
           </div>
 
-          <div className="flex gap-48 my-12">
-            <div className="flex flex-1 flex-col items-end">
+          <div className="flex flex-col md:flex-row py-6 justify-around">
+            <div className="flex flex-col">
               {cart?.cart.map((cartItem, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border-b bg-neutral-100 border-neutral-500 pb-4 w-[50%]"
+                  className="relative flex flex-col border-b bg-neutral-100 border-neutral-500 p-4"
                 >
-                  <div className="flex justify-end">
-                    <Icon
-                      onClick={() => removeFromCart(cartItem)}
-                      className="hover:scale-110 text-black hover:cursor-pointer size-7"
-                      icon="system-uicons:cross"
-                    />
-                  </div>
+                  <Icon
+                    onClick={() => removeFromCart(cartItem)}
+                    className="absolute top-0 right-0 hover:scale-110 text-black hover:cursor-pointer size-7"
+                    icon="system-uicons:cross"
+                  />
+
                   <div className="flex">
                     <div className="relative w-[8rem] h-[10rem]">
                       <CldImage
@@ -62,9 +61,11 @@ export default function CartItems() {
                         sizes="100%"
                       />
                     </div>
-                    <div>
-                      <p className="title">{cartItem.brand}</p>
-                      <p className="subtitle">{cartItem.name}</p>
+                    <div className="md:w-[15rem]">
+                      <p className="title capitalize">{cartItem.brand}</p>
+                      <p className="subtitle capitalize">
+                        {cartItem.name.replace("-", " ")}
+                      </p>
                       <p>${cartItem.price}.00</p>
                     </div>
                   </div>

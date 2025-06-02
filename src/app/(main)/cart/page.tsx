@@ -6,10 +6,12 @@ import CartItems from "./CartItems";
 export default async function CartPage() {
   const products = serializeProducts(await prisma.product.findMany());
   return (
-    <main className="flex flex-col items-center pb-12 overflow-hidden">
+    <main className="flex flex-col items-center py-6 overflow-hidden px-4 md:px-48">
       <CartItems />
-      <span className="w-full flex ml-[35rem] heading">Best deals</span>
-      <Carousel props={products} />
+      <div className="py-4">
+        <span className="inline-block heading">Best deals</span>
+        <Carousel props={products} />
+      </div>
     </main>
   );
 }

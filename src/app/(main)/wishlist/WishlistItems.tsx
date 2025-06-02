@@ -13,8 +13,8 @@ export default function WishlistItems() {
   return (
     <section className="flex w-full flex-1 flex-col items-center gap-6">
       {wishlist?.length != 0 ? (
-        <h1 className="inline-block heading underline decoration-neutral-400 underline-offset-12 text-nowrap self-center md:self-start">
-          Your wishlist items
+        <h1 className="inline-block text-3xl font-bold border-b border-neutral-400 pb-4 text-nowrap self-center">
+          Your wishlist items ({wishlist?.length})
         </h1>
       ) : (
         <div className="flex w-full flex-col flex-1 items-center p-20 gap-28">
@@ -28,12 +28,9 @@ export default function WishlistItems() {
         </div>
       )}
       {wishlist?.length != 0 && (
-        <div className="md:w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 md:gap-4 auto-rows-max">
+        <div className="md:w-max mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 auto-rows-max gap-6">
           {wishlist?.map((product) => (
-            <div
-              key={product.id}
-              className="flex self-center flex-col gap-4 w-[192px]"
-            >
+            <div key={product.id} className="flex flex-col gap-4 w-[192px]">
               <ProductCard props={product}>
                 <Link href={`/watches/wishlisted/${product.name}`}>
                   <CarouselImage props={product} />
