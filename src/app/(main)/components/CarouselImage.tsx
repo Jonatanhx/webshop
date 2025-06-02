@@ -40,7 +40,7 @@ export default function CarouselImage({ props }: CarouselImageProps) {
     );
   } else {
     return (
-      <div className="relative h-[20rem] w-[12rem]">
+      <div className="relative h-[320px] w-[192px]">
         <CldImage
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}

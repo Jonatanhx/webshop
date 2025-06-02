@@ -47,9 +47,9 @@ export default async function CategoryProducts({
   );
 
   return (
-    <section className="flex justify-center flex-1">
+    <section className="flex justify-center flex-1 md:py-8">
       {mensWatches.length > 0 ? (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 auto-rows-max">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 md:gap-4 auto-rows-max">
           {mensWatches.map((product) => (
             <ProductCard key={product.id} props={product}>
               <Link
@@ -61,7 +61,7 @@ export default async function CategoryProducts({
               </Link>
             </ProductCard>
           ))}
-        </ul>
+        </div>
       ) : (
         <div className="flex flex-col items-center justify-center gap-32 h-[25rem]">
           <span className="text-xl font-semibold">

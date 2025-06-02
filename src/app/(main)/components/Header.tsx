@@ -46,7 +46,7 @@ export default async function Header() {
               </Link>
             </div>
           ) : (
-            <div className="flex flex-1 flex-col relative">
+            <div className="flex-1 flex-col relative hidden md:flex">
               <div className="flex items-center justify-end">
                 <SignOutButton />
                 <UserDropdown props={{ user }} />
