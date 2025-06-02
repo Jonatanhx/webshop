@@ -82,10 +82,13 @@ button:hover {
   padding: 0.75rem;
   border-radius: 0.75rem;
   outline: solid 1 #737373;
+  width: 100%;
 }
+
 .input-field1:focus {
   outline: solid 2 #737373;
 }
+
 .input-field1-error {
   height: 3rem;
   padding: 0.75rem;

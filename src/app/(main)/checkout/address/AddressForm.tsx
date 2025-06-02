@@ -44,7 +44,7 @@ export default function AddressForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-4 my-4 w-full"
+      className="flex flex-col gap-4 my-4 w-[80vw] md:w-full"
     >
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-center input-field2 relative h-[3rem] p-4">
@@ -76,7 +76,7 @@ export default function AddressForm() {
         )}
       </div>
       <div className="flex gap-2">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-1 flex-col gap-2">
           <input
             type="text"
             className={`${
@@ -91,7 +91,7 @@ export default function AddressForm() {
             <span className="text-red-500">Enter a first name</span>
           )}
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-1 flex-col gap-2">
           <input
             type="text"
             className={`${

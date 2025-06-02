@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ProfileAside() {
   return (
-    <aside className="flex flex-col self-start gap-3">
+    <aside className="hidden md:flex flex-col self-start gap-3">
       <span className="text-2xl font-semibold text-nowrap">Your account</span>
 
       <Link

@@ -24,13 +24,13 @@ export default async function OrdersPage() {
   }
 
   return (
-    <main id="profile-main" className="px-48 py-6">
+    <main id="profile-main" className="px-6 md:px-48 py-6 gap-8">
       <ProfileAside />
-      <section className="flex flex-col px-32">
-        <h1 className="heading self-start">Orders</h1>
+      <section className="flex flex-1 flex-col self-start">
+        <h1 className="text-2xl font-semibold self-start py-4">Orders</h1>
         <ul>
           {orders.map((order) => (
-            <li key={order.id} className="p-6 border-t flex flex-col">
+            <li key={order.id} className="border-t flex flex-col">
               <span className="font-semibold">
                 Order number:{" "}
                 {order.id
@@ -40,11 +40,11 @@ export default async function OrdersPage() {
               </span>
               <span>Order date: 2025/05/23</span>
               <span>Total cost: $1054.00</span>
-              <div className="flex gap-1">
+              <div className="flex flex-col md:flex-row">
                 {order.ProductsInOrders.map((order) => (
                   <div
                     key={order.product.id}
-                    className="flex flex-col gap-6 p-6"
+                    className="flex flex-col gap-6 p-6 items-center"
                   >
                     <div className="relative w-[8rem] h-[14rem]">
                       <OrderImage

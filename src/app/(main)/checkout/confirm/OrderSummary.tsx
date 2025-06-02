@@ -48,34 +48,31 @@ export default function OrderSummary() {
   }
 
   return (
-    <div className="flex flex-1 w-full justify-around">
+    <div className="flex flex-col md:flex-row flex-1 w-full justify-around">
       <section className="flex flex-col p-4 gap-6">
-        <div className="flex flex-col gap-2 self-start">
+        <div className="flex w-full flex-col gap-2 self-start">
           <span className="text-lg font-semibold">Order</span>
           <span>Parcel shipped by Peluche</span>
           <span>Parcel delivered by UPS</span>
           {context?.cart.map((cartItem) => (
             <div
               key={cartItem.id}
-              className="flex flex-col border-b bg-neutral-100 border-neutral-500 pb-4"
+              className="flex border-b bg-neutral-100 border-neutral-500 p-4"
             >
-              <div className="flex justify-end"></div>
-              <div className="flex">
-                <div className="relative w-[6rem] h-[10rem] overflow-hidden">
-                  <CldImage
-                    alt={cartItem.name}
-                    src={cartItem.images[0]}
-                    width={300}
-                    height={200}
-                    className="object-cover object-center w-full h-full"
-                    sizes="100%"
-                  />
-                </div>
-                <div>
-                  <p className="title">{cartItem.brand}</p>
-                  <p className="subtitle">{cartItem.name}</p>
-                  <p>${cartItem.price}.00</p>
-                </div>
+              <div className="relative w-[6rem] h-[10rem] overflow-hidden">
+                <CldImage
+                  alt={cartItem.name}
+                  src={cartItem.images[0]}
+                  width={300}
+                  height={200}
+                  className="object-cover object-center w-full h-full"
+                  sizes="100%"
+                />
+              </div>
+              <div>
+                <p className="title">{cartItem.brand}</p>
+                <p className="subtitle">{cartItem.name}</p>
+                <p>${cartItem.price}.00</p>
               </div>
             </div>
           ))}

@@ -30,7 +30,7 @@ export default function CheckoutProgressBar() {
     return;
   } else {
     return (
-      <ol id="checkout-progress-bar">
+      <ol id="checkout-progress-bar" className="py-4">
         <li
           className={`progress-step ${
             context.step >= 1 ? "text-neutral-400" : ""
