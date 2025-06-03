@@ -20,7 +20,7 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
   }
 
   return (
-    <div className="flex">
+    <div className="flex py-6">
       <section className="flex flex-1 justify-end">
         <div>
           {props.images.map((image, index) => (

@@ -22,7 +22,7 @@ export default async function ProductPage(props0: {
     price: Number(product.price),
   };
   return (
-    <main>
+    <main id="main-content">
       <URLPath />
       <ProductDisplay props={serializedProduct} />
     </main>

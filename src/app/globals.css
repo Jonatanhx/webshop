@@ -21,7 +21,7 @@ button:hover {
 }
 
 .heading {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -160,11 +160,6 @@ button:hover {
   height: 1.6rem;
 }
 
-#profile-main {
-  display: flex;
-  flex-direction: row;
-}
-
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
@@ -172,4 +167,21 @@ button:hover {
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+#profile-main {
+  display: flex;
+  flex-direction: row;
+
+  @media (width >= 48rem) {
+    padding-inline: 20rem;
+    padding-block: 1.5rem;
+  }
+}
+
+#main-content {
+  @media (width >= 48rem) {
+    padding-inline: 20rem;
+    padding-block: 1.5rem;
+  }
 }

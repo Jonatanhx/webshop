@@ -9,7 +9,7 @@ export default async function ProfilePage() {
   }
 
   return (
-    <main id="profile-main" className="px-48 py-6">
+    <main id="profile-main">
       <ProfileAside />
       <section className="flex h-screen w-full flex-col self-start px-20">
         <h1 className="heading">My profile</h1>

@@ -24,13 +24,16 @@ export default async function OrdersPage() {
   }
 
   return (
-    <main id="profile-main" className="px-6 md:px-48 py-6 gap-8">
+    <main id="profile-main">
       <ProfileAside />
-      <section className="flex flex-1 flex-col self-start">
-        <h1 className="text-2xl font-semibold self-start py-4">Orders</h1>
-        <ul>
+      <section className="flex flex-1 flex-col self-start px-8">
+        <h1 className="heading border-b border-neutral-300 py-2">Orders</h1>
+        <ul className="flex flex-col gap-6 py-6">
           {orders.map((order) => (
-            <li key={order.id} className="border-t flex flex-col">
+            <li
+              key={order.id}
+              className="border-b border-neutral-300 flex flex-col py-2"
+            >
               <span className="font-semibold">
                 Order number:{" "}
                 {order.id

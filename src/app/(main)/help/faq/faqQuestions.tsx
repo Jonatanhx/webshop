@@ -35,7 +35,7 @@ export default function FaqQuestions() {
   }
 
   return (
-    <div className="flex flex-col gap-4 min-w-[33%]">
+    <div className="w-full space-y-4 py-6">
       {faq.map((qa, index) => (
         <div onClick={() => toggleQuestion(qa)} className="flex " key={index}>
           <div className="flex flex-col flex-1">

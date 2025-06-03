@@ -21,7 +21,7 @@ export default function WishlistItems() {
           <h1 className="heading">Your wishlist is empty</h1>
           <Link
             href="/"
-            className="text-white w-[25%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
+            className="text-white w-sm md:w-md h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
           >
             Browse products
           </Link>
