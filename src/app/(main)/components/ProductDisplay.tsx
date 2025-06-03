@@ -20,8 +20,9 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
   }
 
   return (
-    <div className="flex py-6">
-      <section className="flex flex-1 justify-end">
+    <section className="flex w-full flex-col md:flex-row py-6 px-4 gap-4">
+      {/* Desktop */}
+      <div className="flex flex-1 justify-end">
         <div>
           {props.images.map((image, index) => (
             <div
@@ -38,17 +39,16 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
             </div>
           ))}
         </div>
-        <div className="relative w-[22.5rem] h-[30rem]">
+        <div className="relative h-auto w-[50%] md:w-[16rem]">
           <CldImage
             src={props.images[0]}
             alt={props.name}
             fill
-            sizes="100%"
             className="object-center object-contain"
           />
         </div>
-      </section>
-      <section className="flex flex-1 justify-between flex-col">
+      </div>
+      <div className="flex flex-1 justify-between flex-col gap-4">
         <div className="flex flex-col gap-2">
           <h1 className="text-5xl uppercase semi-bold">{props.brand}</h1>
           <h2 className="text-2xl text-neutral-400 capitalize">
@@ -62,7 +62,7 @@ export default function ProductDisplay({ props }: ProductDisplayProps) {
           </button>
           <p className="subtitle">All images licensed under CC BY-NC 4.0</p>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
