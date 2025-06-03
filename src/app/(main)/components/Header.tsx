@@ -1,8 +1,8 @@
 import { auth } from "@/auth";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
 import SignOutButton from "./buttons/SignOutButton";
+import HamburgerMenu from "./HamburgerMenu";
 import Navbar from "./Navbar";
 import SettingsBar from "./SettingsBar";
 import UserBar from "./UserBar";
@@ -22,20 +22,22 @@ export default async function Header() {
         </p>
         <SettingsBar />
       </div>
-      <div className="flex items-center w-full px-6">
-        <div className="w-[25%]" />
-
-        <Link href="/" className="flex w-[50%] justify-center pt-1 pb-2">
-          <Image
-            src="/Peluche1.svg"
-            alt="Logo"
-            width={200}
-            height={300}
-            priority
-          />
-        </Link>
+      <div className="flex items-center w-full px-6 md:pb-1">
+        <div className="w-[25%]">
+          <HamburgerMenu />
+        </div>
+        <div className="flex w-[50%] justify-center py-4 md:py-2">
+          <Link href="/">
+            <Image
+              src="/Peluche1.svg"
+              alt="Logo"
+              width={200}
+              height={300}
+              priority
+            />
+          </Link>
+        </div>
         <div className="flex justify-end w-[25%]">
-          <Icon icon="quill:hamburger" className="size-6 flex md:hidden" />
           {!session ? (
             <div className="flex flex-col justify-center">
               <Link

@@ -76,11 +76,11 @@ export default function CartItems() {
           </div>
         </div>
       ) : (
-        <section className="flex flex-col flex-1 items-center p-20 gap-28 w-[50%]">
+        <section className="flex flex-col flex-1 items-center md:p-20 gap-28 w-[50%]">
           <h1 className="heading">Your bag is empty</h1>
           <Link
             href="/"
-            className="text-white w-[25%] h-[3rem] bg-black flex justify-center items-center font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
+            className="flex w-sm md:w-md justify-center items-center text-white p-2 h-[3rem] bg-black font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
           >
             Browse products
           </Link>

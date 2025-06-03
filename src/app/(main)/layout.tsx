@@ -18,6 +18,7 @@ export default function RootLayout({
           <NavDropdownProvider>
             <html lang="en">
               <body>
+                <div id="hamburger-menu-root" />
                 <Header />
                 {children}
                 <Footer />
