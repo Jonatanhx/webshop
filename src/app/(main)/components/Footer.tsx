@@ -5,7 +5,7 @@ export default async function Footer() {
   return (
     <footer className="flex flex-col border-t min-h-[20rem] justify-between items-center pb-4">
       <section className="flex justify-around items-center min-h-[12rem] w-full md:w-[50%]">
-        <div className="h-[8rem]">
+        <div>
           <p className="font-semibold">Help</p>
           <ul>
             <Link href="/help/faq">
@@ -19,7 +19,7 @@ export default async function Footer() {
             </Link>
           </ul>
         </div>
-        <div className="h-[8rem]">
+        <div>
           <p className="font-semibold">Connect</p>
           <ul>
             <Link href="/">
@@ -31,7 +31,7 @@ export default async function Footer() {
           </ul>
         </div>
       </section>
-      <div className="flex flex-col items-center gap-6 w-[50%]">
+      <div className="flex flex-col items-center gap-6">
         <Image
           src="/Peluche1.svg"
           alt="Peluche logo"
