@@ -31,18 +31,16 @@ export default function CartItems() {
     <section className="flex w-full">
       {cart?.cart.length != 0 ? (
         <div className="flex flex-1 flex-col">
-          <div className="flex flex-col items-center">
-            <h1 className="text-3xl font-bold pb-4 border-b border-neutral-400 mb-12">
-              Your bag({cart?.cart.length})
-            </h1>
-          </div>
+          <h1 className="heading py-2 border-b border-neutral-300">
+            Your bag ({cart?.cart.length})
+          </h1>
 
-          <div className="flex flex-col md:flex-row py-6 justify-around">
+          <div className="flex flex-col md:flex-row py-6 justify-between">
             <div className="flex flex-col">
               {cart?.cart.map((cartItem, index) => (
                 <div
                   key={index}
-                  className="relative flex flex-col border-b bg-neutral-100 border-neutral-500 p-4"
+                  className="relative flex flex-col border-b bg-neutral-100 border-neutral-300 p-4"
                 >
                   <Icon
                     onClick={() => removeFromCart(cartItem)}

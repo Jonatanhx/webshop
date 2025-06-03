@@ -169,19 +169,9 @@ button:hover {
   scrollbar-width: none;
 }
 
-#profile-main {
-  display: flex;
-  flex-direction: row;
-
-  @media (width >= 48rem) {
-    padding-inline: 20rem;
-    padding-block: 1.5rem;
-  }
-}
-
 #main-content {
+  padding-block: 1.5rem;
   @media (width >= 48rem) {
     padding-inline: 20rem;
-    padding-block: 1.5rem;
   }
 }

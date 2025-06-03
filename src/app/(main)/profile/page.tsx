@@ -9,17 +9,17 @@ export default async function ProfilePage() {
   }
 
   return (
-    <main id="profile-main">
-      <ProfileAside />
-      <section className="flex h-screen w-full flex-col self-start px-20">
-        <h1 className="heading">My profile</h1>
-        <div className="flex flex-col items-center gap-8 p-[10rem]">
+    <main id="main-content">
+      <h1 className="heading w-full py-6">Overview</h1>
+      <div className="flex w-full">
+        <ProfileAside />
+        <section className="flex w-full items-center gap-20 flex-col px-14">
           <span className="text-neutral-700 text-lg">
             You&apos;re all caught up 🎉
           </span>
-          <button className="btn1 w-[50%]">Continue shopping</button>
-        </div>
-      </section>
+          <button className="btn1 w-xl">Continue shopping</button>
+        </section>
+      </div>
     </main>
   );
 }

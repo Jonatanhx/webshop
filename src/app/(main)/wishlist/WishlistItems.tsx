@@ -11,9 +11,9 @@ export default function WishlistItems() {
   const wishlist = wishlistItems?.wishlist;
 
   return (
-    <section className="flex w-full flex-1 flex-col items-center gap-6">
+    <section className="flex flex-col w-full">
       {wishlist?.length != 0 ? (
-        <h1 className="inline-block text-3xl font-bold border-b border-neutral-400 pb-4 text-nowrap self-center">
+        <h1 className="heading py-2 border-b border-neutral-300">
           Your wishlist items ({wishlist?.length})
         </h1>
       ) : (

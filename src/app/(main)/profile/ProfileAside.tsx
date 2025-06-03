@@ -7,7 +7,7 @@ export default function ProfileAside() {
 
       <Link
         className="no-underline hover:underline hover:underline-offset-8 self-start text-xl"
-        href="/profile/overview"
+        href="/profile"
       >
         Overview
       </Link>
