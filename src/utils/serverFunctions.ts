@@ -3,7 +3,9 @@
 import { signIn } from "@/auth";
 import { prisma } from "../../lib/prisma";
 
-export async function signInCredentialsUser(data: { email: string }) {
+export async function signInCredentialsUser(data: {
+  email: string;
+}): Promise<string | null> {
   const user = await prisma.user.findUnique({ where: { email: data.email } });
 
   if (!user) {
@@ -15,4 +17,6 @@ export async function signInCredentialsUser(data: { email: string }) {
     name: user?.name,
     id: user?.id,
   });
+
+  return "success";
 }

@@ -37,7 +37,7 @@ export default async function Header() {
             />
           </Link>
         </div>
-        <div className="flex w-[25%]">
+        <div className="flex w-[25%] justify-end">
           {!session ? (
             <div className="flex flex-col justify-center">
               <Link

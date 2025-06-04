@@ -1,12 +1,18 @@
 "use client";
 import { signInCredentialsUser } from "@/utils/serverFunctions";
+import { useRouter } from "next/navigation";
+
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function SignInForm() {
   const { register, handleSubmit } = useForm<{ email: string }>();
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<{ email: string }> = async (data) => {
-    await signInCredentialsUser(data);
+    const user = await signInCredentialsUser(data);
+    if (user) {
+      router.push("/");
+    }
   };
 
   return (

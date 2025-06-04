@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Footer() {
   return (
-    <footer className="flex flex-col border-t min-h-[20rem] justify-between items-center pb-4">
-      <section className="flex justify-around items-center min-h-[12rem] w-full md:w-[50%]">
+    <footer className="flex flex-col border-t justify-between items-center">
+      {/* <section className="flex justify-around items-center min-h-[12rem] w-full md:w-[50%]">
         <div>
           <p className="font-semibold">Help</p>
           <ul>
@@ -30,8 +29,8 @@ export default async function Footer() {
             </Link>
           </ul>
         </div>
-      </section>
-      <div className="flex flex-col items-center gap-6">
+      </section> */}
+      <div className="flex flex-col items-center gap-6 p-4">
         <Image
           src="/Peluche1.svg"
           alt="Peluche logo"

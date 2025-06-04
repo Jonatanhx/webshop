@@ -30,12 +30,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     strategy: "jwt",
   },
   callbacks: {
+    async redirect({ baseUrl }) {
+      return baseUrl;
+    },
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
       }
       return token;
     },
+
     async session({ session, token }) {
       if (token?.id) {
         session.user.id = token.id as string;
@@ -43,6 +47,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return session;
     },
   },
+
   pages: {
     signIn: "/signin",
   },
