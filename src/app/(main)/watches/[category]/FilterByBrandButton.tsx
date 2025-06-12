@@ -15,16 +15,10 @@ export default function FilterByBrandButton({
   function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const value = e.target.value;
 
-    switch (value) {
-      case "all":
-        params.delete("brand");
-        break;
-      case "bulova":
-        params.set("brand", "bulova");
-        break;
-      case "citizen":
-        params.set("brand", "citizen");
-        break;
+    if (value === "all") {
+      params.delete("brand");
+    } else {
+      params.set("brand", value);
     }
     router.push(`?${params}`);
   }
