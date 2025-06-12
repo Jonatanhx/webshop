@@ -7,7 +7,7 @@ export default function URLPath() {
   const params = useParams();
 
   return (
-    <div className="flex px-2 gap-2 capitalize self-start">
+    <div className="hidden px-2 gap-2 capitalize self-start md:flex">
       <Link href="/" className="hover:underline underline-offset-4">
         home
       </Link>

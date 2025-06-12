@@ -171,7 +171,5 @@ button:hover {
 
 #main-content {
   padding-block: 1.5rem;
-  @media (width >= 48rem) {
-    padding-inline: 20rem;
-  }
+  padding-inline: 15%;
 }

@@ -197,4 +197,240 @@ export async function seedProducts() {
       },
     },
   });
+  await prisma.product.upsert({
+    where: { name: "caravelle-traditional-gold" },
+    update: {},
+    create: {
+      name: "caravelle-traditional-gold",
+      price: 945.0,
+      brand: "caravelle",
+      isFeatured: false,
+      isTrending: false,
+      images: [
+        "CaravelleTraditionalGold_atc1wy",
+        "CaravelleTraditionalGold2_plmhcd",
+        "CaravelleTraditionalGold3_pjduj1",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "caravelle-traditional-gold-slim" },
+    update: {},
+    create: {
+      name: "caravelle-traditional-gold-slim",
+      price: 845.0,
+      brand: "caravelle",
+      isFeatured: true,
+      isTrending: true,
+      images: [
+        "CaravelleTraditionalSlim_f1z79r",
+        "CaravelleTraditionalSlim2_chvard",
+        "CaravelleTraditionalSlim3_oixqhj",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "caravelle-traditional" },
+    update: {},
+    create: {
+      name: "caravelle-traditional",
+      price: 435.0,
+      brand: "caravelle",
+      isFeatured: false,
+      isTrending: false,
+      images: [
+        "CaravelleTraditional_sgrzzo",
+        "CaravelleTraditional2_ikfmwz",
+        "CaravelleTraditional3_kg6rje",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "caravelle-hedge" },
+    update: {},
+    create: {
+      name: "caravelle-hedge",
+      price: 220.0,
+      brand: "caravelle",
+      isFeatured: false,
+      isTrending: false,
+      images: ["CaravelleHedge_rjnazv"],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "caravelle-classic" },
+    update: {},
+    create: {
+      name: "caravelle-classic",
+      price: 290.0,
+      brand: "caravelle",
+      isFeatured: true,
+      isTrending: true,
+      images: ["CaravelleClassic_i1avya", "CaravelleClassic2_hlcien"],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
+              },
+            },
+          },
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "bulova-sutton" },
+    update: {},
+    create: {
+      name: "bulova-sutton",
+      price: 310.0,
+      brand: "bulova",
+      isFeatured: false,
+      isTrending: true,
+      images: [
+        "BulovaSutton_gjr4jy",
+        "BulovaSutton2_hmljnc",
+        "BulovaSutton3_elbvc1",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "womens-watches" },
+                create: { name: "womens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "citizen-promaster-dive" },
+    update: {},
+    create: {
+      name: "citizen-promaster-dive",
+      price: 425.0,
+      brand: "citizen",
+      isFeatured: false,
+      isTrending: false,
+      images: ["CitizenPromasterDive_enqo7e", "CitizenPromasterDive2_nd4zzr"],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  await prisma.product.upsert({
+    where: { name: "citizen-promaster-GMT-eco-drive" },
+    update: {},
+    create: {
+      name: "citizen-promaster-GMT-eco-drive",
+      price: 550.0,
+      brand: "citizen",
+      isFeatured: true,
+      isTrending: true,
+      images: [
+        "CitizenPromasterGMTEcoDrive_evaasi",
+        "CitizenPromasterGMTEcoDrive2_bl08gy",
+        "CitizenPromasterGMTEcoDrive3_cvo10x",
+      ],
+      productCategory: {
+        create: [
+          {
+            category: {
+              connectOrCreate: {
+                where: { name: "mens-watches" },
+                create: { name: "mens-watches" },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
 }

@@ -63,7 +63,7 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
               context?.setHoveredItem("");
             }}
             className={`flex absolute duration-300 bg-white w-full gap-32 overflow-hidden ${
-              context?.isOpen ? "h-[15rem] border-b-2 py-4 " : "h-0"
+              context?.isOpen ? "min-h-[15rem] border-b-2 py-4 " : "h-0"
             }`}
           >
             <div className="flex flex-1" />
@@ -80,7 +80,7 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
             <div className="flex flex-col">
               <span className="subtitle">Trending Watches</span>
 
-              {categoryProducts.map((product) => (
+              {categoryProducts.slice(0, 7).map((product) => (
                 <Link
                   href={`/watches/${props.category.name}/${product.name}`}
                   className="capitalize hover:underline underline-offset-4"

@@ -47,7 +47,7 @@ export default async function CategoryProducts({
   );
 
   return (
-    <section className="flex justify-center flex-1 md:py-8">
+    <section className="flex justify-center flex-1 md:py-8 w-full">
       {mensWatches.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 md:gap-4 auto-rows-max">
           {mensWatches.map((product) => (
