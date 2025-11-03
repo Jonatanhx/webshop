@@ -17,7 +17,7 @@ export default async function Navbar() {
 
   return (
     <nav className="flex flex-col bg-stone-600 text-white w-full items-center justify-center">
-      <ul className="flex">
+      <ul className="flex gap-5">
         <BrandsDropdown props={serializedProducts} />
         {categories.map((category) => (
           <Link href={`/watches/${category.name}`} key={category.id}>

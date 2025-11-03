@@ -1,7 +1,6 @@
 "use client";
 
 import { serializedProduct } from "@/types";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useContext } from "react";
@@ -28,7 +27,8 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
     <Link href="/watches">
       <li
         className={`relative flex justify-center hover:cursor-pointer font-semibold text-sm md:text-lg px-2 py-3 ${
-          context?.hoveredItem === "brands" && "underline underline-offset-4"
+          context?.hoveredItem === "brands" &&
+          "underline underline-offset-6 decoration-2"
         }`}
         onMouseOver={() => {
           context?.setIsOpen(true);
@@ -40,7 +40,6 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
         }}
       >
         Brands
-        <Icon icon="mdi:chevron-down" className="size-6 mt-1 hidden md:flex" />
         {context?.hoveredItem === "brands" && (
           <NavDropdownWrapper>
             <div
@@ -58,22 +57,22 @@ export default function BrandsDropdown({ props }: BrandsDropdownProps) {
             >
               <div className="flex flex-1" />
               <div className="flex flex-col">
-                <span className="subtitle">Discover</span>
+                <span className="subtitle-dropdown p-1">Discover</span>
 
                 <Link
                   href="/watches"
-                  className="capitalize no-underline hover:underline underline-offset-4"
+                  className="capitalize  hover:bg-stone-500 hover:text-white p-1 rounded-md"
                 >
                   View all
                 </Link>
               </div>
               <div className="flex flex-col">
-                <span className="subtitle">Popular Brands</span>
+                <span className="subtitle-dropdown p-1">Popular Brands</span>
                 {uniqueBrands.map((brand, index) => (
                   <Link
                     href={`/watches/${params.category}/?brand=${brand}`}
                     key={index}
-                    className="capitalize hover:cursor-pointer no-underline hover:underline underline-offset-4"
+                    className="capitalize hover:cursor-pointer hover:bg-stone-500 hover:text-white p-1 rounded-md"
                   >
                     {brand}
                   </Link>

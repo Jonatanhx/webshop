@@ -1,7 +1,6 @@
 "use client";
 
 import { serializedProduct } from "@/types";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { NavDropdownContext } from "../contexts/NavDropdownContext";
@@ -46,11 +45,10 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
       }}
       className={`flex hover:cursor-pointer capitalize font-semibold px-2 py-3 text-sm md:text-lg ${
         context?.hoveredItem === props.category.name &&
-        "underline underline-offset-4"
+        "underline underline-offset-6 decoration-2"
       }`}
     >
       {props.category.name.replace("-", " ")}
-      <Icon icon="mdi:chevron-down" className="size-6 mt-1 hidden md:flex" />
       {context?.hoveredItem === props.category.name && (
         <NavDropdownWrapper>
           <div
@@ -68,22 +66,22 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
           >
             <div className="flex flex-1" />
             <div className="flex flex-col">
-              <span className="subtitle">Discover</span>
+              <span className="subtitle-dropdown p-1">Discover</span>
 
               <Link
                 href="/watches"
-                className="capitalize hover:cursor-pointer border-b border-transparent hover:border-black"
+                className="capitalize hover:cursor-pointer  hover:bg-stone-500 hover:text-white p-1 rounded-md"
               >
                 View all
               </Link>
             </div>
             <div className="flex flex-col">
-              <span className="subtitle">Trending Watches</span>
+              <span className="subtitle-dropdown p-1">Trending Watches</span>
 
               {categoryProducts.slice(0, 7).map((product) => (
                 <Link
                   href={`/watches/${props.category.name}/${product.name}`}
-                  className="capitalize hover:underline underline-offset-4"
+                  className="capitalize hover:bg-stone-500 hover:text-white p-1 rounded-md"
                   key={product.id}
                 >
                   {product.name.replace("-", " ")}
@@ -91,13 +89,13 @@ export default function CategoriesDropdown({ props }: CategoriesDropdownProps) {
               ))}
             </div>
             <div className="flex flex-col">
-              <span className="subtitle">Popular Brands</span>
+              <span className="subtitle-dropdown p-1">Popular Brands</span>
 
               {props.uniqueBrandsArray.map((brand, index) => (
                 <Link
                   href={`/watches`}
                   key={index}
-                  className="capitalize hover:underline underline-offset-4"
+                  className="capitalize hover:bg-stone-500 hover:text-white p-1 rounded-md"
                 >
                   {brand}
                 </Link>

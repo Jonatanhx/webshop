@@ -37,6 +37,12 @@ button:hover {
   color: gray;
 }
 
+.subtitle-dropdown {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+}
+
 #checkout-progress-bar {
   position: relative;
   z-index: 30;
