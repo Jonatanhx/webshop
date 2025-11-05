@@ -1,15 +1,37 @@
 "use client";
 
-import { serializedProduct } from "@/types";
+import { serializedProduct, serializedProductWithQuantity } from "@/types";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import CartTotal from "./CartTotal";
 
 export default function CartItems() {
   const cart = useContext(CartContext);
+  const [uniqueCart, setUniqueCart] = useState<serializedProductWithQuantity[]>(
+    []
+  );
+
+  useEffect(() => {
+    if (!cart?.cart) return;
+
+    const uniqueProducts = cart.cart.reduce(
+      (accumulator: serializedProductWithQuantity[], item) => {
+        const duplicateProduct = accumulator.find((i) => i.id === item.id);
+        if (duplicateProduct) {
+          duplicateProduct.quantity += 1;
+        } else {
+          accumulator.push({ ...item, quantity: 1 });
+        }
+        return accumulator;
+      },
+      []
+    );
+
+    setUniqueCart(uniqueProducts);
+  }, [cart?.cart]);
 
   function removeFromCart(itemToRemove: serializedProduct) {
     const currentCart: serializedProduct[] = JSON.parse(
@@ -37,17 +59,21 @@ export default function CartItems() {
 
           <div className="flex flex-col md:flex-row py-6 justify-between">
             <div className="flex flex-col">
-              {cart?.cart.map((cartItem, index) => (
+              {uniqueCart.map((cartItem, index) => (
                 <div
                   key={index}
                   className="relative flex flex-col border-b bg-neutral-100 border-neutral-300 p-4"
                 >
-                  <Icon
-                    onClick={() => removeFromCart(cartItem)}
-                    className="absolute top-0 right-0 hover:scale-110 text-black hover:cursor-pointer size-7"
-                    icon="system-uicons:cross"
-                  />
-
+                  <div className="flex absolute top-0 right-0 ">
+                    <div className="border px-2">
+                      <span className="">{cartItem.quantity}</span>
+                    </div>
+                    <Icon
+                      onClick={() => removeFromCart(cartItem)}
+                      className=" hover:scale-110 text-black hover:cursor-pointer size-7"
+                      icon="system-uicons:cross"
+                    />
+                  </div>
                   <div className="flex">
                     <div className="relative w-[8rem] h-[10rem]">
                       <CldImage

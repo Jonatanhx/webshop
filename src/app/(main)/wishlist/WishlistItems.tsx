@@ -1,14 +1,26 @@
 "use client";
 
+import { serializedProduct } from "@/types";
 import Link from "next/link";
 import { useContext } from "react";
 import CarouselImage from "../components/CarouselImage";
 import ProductCard from "../components/ProductCard";
+import { CartContext } from "../contexts/CartContext";
 import { WishlistContext } from "../contexts/WishlistContext";
 
 export default function WishlistItems() {
   const wishlistItems = useContext(WishlistContext);
   const wishlist = wishlistItems?.wishlist;
+
+  const cart = useContext(CartContext);
+
+  function addToCart(product: serializedProduct) {
+    const currentCart: serializedProduct[] = JSON.parse(
+      localStorage.getItem("cartItems") || "[]"
+    );
+    currentCart.push(product);
+    cart?.setCart(currentCart);
+  }
 
   return (
     <section className="flex flex-col w-full">
@@ -36,7 +48,7 @@ export default function WishlistItems() {
                   <CarouselImage props={product} />
                 </Link>
               </ProductCard>
-              <button className="btn1">
+              <button onClick={() => addToCart(product)} className="btn1">
                 <p className="text-white">Add to bag</p>
               </button>
             </div>

@@ -13,12 +13,6 @@ export default function ProfileAside() {
       </Link>
       <Link
         className="no-underline hover:underline hover:underline-offset-8 self-start text-xl"
-        href="/profile/settings"
-      >
-        Account settings
-      </Link>
-      <Link
-        className="no-underline hover:underline hover:underline-offset-8 self-start text-xl"
         href="/profile/orders"
       >
         Order history

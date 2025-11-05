@@ -20,6 +20,10 @@ export type serializedProduct = {
   price: number;
 };
 
+export type serializedProductWithQuantity = serializedProduct & {
+  quantity: number;
+};
+
 export type AddressInputs = {
   country: string;
   firstName: string;
