@@ -35,13 +35,13 @@ export default async function HomePage() {
   return (
     <main className="gap-12 pb-12">
       <Hero />
-      <div className="flex self-start pl-6 md:pl-16 xl:pl-32">
+      <div className="flex self-start pl-8 md:pl-24 xl:pl-48">
         <span className="text-xl md:text-3xl font-bold text-nowrap">
           The hottest products for him
         </span>
       </div>
       <Carousel props={mensWatches} />
-      <div className="flex self-start pl-6 md:pl-16 xl:pl-32">
+      <div className="flex self-start pl-8 md:pl-24 xl:pl-48">
         <span className="text-xl md:text-3xl font-bold text-nowrap">
           The finest assortment for her
         </span>

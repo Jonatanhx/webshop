@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Footer() {
   return (
     <footer className="flex flex-col border-t justify-between items-center">
-      {/* <section className="flex justify-around items-center min-h-[12rem] w-full md:w-[50%]">
+      <section className="flex justify-around items-center min-h-[12rem] w-full md:w-[50%]">
         <div>
           <p className="font-semibold">Help</p>
           <ul>
@@ -24,12 +25,12 @@ export default async function Footer() {
             <Link href="/">
               <li className="hover:underline underline-offset-4">About us</li>
             </Link>
-            <Link href="/connect/contact">
+            <Link href="/">
               <li className="hover:underline underline-offset-4">Contact</li>
             </Link>
           </ul>
         </div>
-      </section> */}
+      </section>
       <div className="flex flex-col items-center gap-6 p-4">
         <Image
           src="/Peluche1.svg"

@@ -5,6 +5,7 @@ import { prisma } from "../lib/prisma";
 
 export async function createOrder(cartItems: serializedProduct[]) {
   const session = await auth();
+
   await prisma.order.create({
     data: {
       ProductsInOrders: {
