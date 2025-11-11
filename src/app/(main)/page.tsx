@@ -1,6 +1,7 @@
 import { serializeProducts } from "@/utils/helperFunctions";
 import { prisma } from "../../../lib/prisma";
 import Carousel from "./components/Carousel";
+import Fluff from "./components/Fluff";
 import Hero from "./components/Hero";
 
 export default async function HomePage() {
@@ -47,6 +48,7 @@ export default async function HomePage() {
         </span>
       </div>
       <Carousel props={womensWatches} />
+      <Fluff />
     </main>
   );
 }

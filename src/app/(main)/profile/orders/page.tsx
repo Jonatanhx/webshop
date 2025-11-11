@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { prisma } from "../../../../../lib/prisma";
 import ProfileAside from "../ProfileAside";
@@ -83,7 +84,12 @@ export default async function OrdersPage() {
               <span className="text-neutral-700 text-lg">
                 No recent orders were found
               </span>
-              <button className="btn1 w-xl">Continue shopping</button>
+              <Link
+                href="/"
+                className="flex w-sm md:w-md justify-center items-center text-white p-2 h-[3rem] bg-black font-semibold hover:cursor-pointer hover:bg-black/70 duration-150"
+              >
+                Continue shopping
+              </Link>
             </div>
           )}
         </section>
