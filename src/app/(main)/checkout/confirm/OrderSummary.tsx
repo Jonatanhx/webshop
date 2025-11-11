@@ -54,9 +54,9 @@ export default function OrderSummary() {
           <span className="text-lg font-semibold">Order</span>
           <span>Parcel shipped by Peluche</span>
           <span>Parcel delivered by UPS</span>
-          {context?.cart.map((cartItem) => (
+          {context?.cart.map((cartItem, index) => (
             <div
-              key={cartItem.id}
+              key={index}
               className="flex border-b bg-neutral-100 border-neutral-500 p-4"
             >
               <div className="relative w-[6rem] h-[10rem] overflow-hidden">
